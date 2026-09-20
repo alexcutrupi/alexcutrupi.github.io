@@ -38,13 +38,40 @@
 
   <main>
     <section class="hero container">
-      <p class="prompt">whoami</p>
-      <h1>Hi, I'm Alex Cutrupi.</h1>
-      <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
-      <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
-      <p class="tag-list">
-        <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
-      </p>
+      <svg class="hero-decoration" viewBox="0 0 280 200" fill="none" aria-hidden="true">
+        <path d="M0 40 H90 V90 H180" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 140 H110 V100" stroke="currentColor" stroke-width="2"/>
+        <path d="M180 90 H240 V30 H280" stroke="currentColor" stroke-width="2"/>
+        <path d="M110 100 H200 V160 H260" stroke="currentColor" stroke-width="2"/>
+        <rect x="180" y="70" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2"/>
+        <circle cx="0" cy="40" r="4" fill="currentColor"/>
+        <circle cx="90" cy="40" r="4" fill="currentColor"/>
+        <circle cx="20" cy="140" r="4" fill="currentColor"/>
+        <circle cx="110" cy="100" r="4" fill="currentColor"/>
+        <circle cx="240" cy="30" r="4" fill="currentColor"/>
+        <circle cx="280" cy="30" r="4" fill="currentColor"/>
+        <circle cx="200" cy="160" r="4" fill="currentColor"/>
+        <circle cx="260" cy="160" r="4" fill="currentColor"/>
+      </svg>
+
+      <div class="hero-grid">
+        <div>
+          <p class="prompt">whoami</p>
+          <h1>Hi, I'm Alex Cutrupi.</h1>
+          <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
+          <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
+          <p class="tag-list">
+            <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
+          </p>
+        </div>
+
+        <dl class="quickfacts">
+          <div><dt>status</dt><dd>Year 11 student</dd></div>
+          <div><dt>base</dt><dd>United Kingdom</dd></div>
+          <div><dt>focus</dt><dd>Electrical + networking</dd></div>
+          <div><dt>building</dt><dd>Christmas light show</dd></div>
+        </dl>
+      </div>
     </section>
 
     <section id="about" class="section container">
@@ -200,20 +227,23 @@
       </p>
     </section>
 
-    <section id="education" class="section container">
-      <p class="eyebrow">education</p>
-      <h2>Education</h2>
-      <p>Currently in Year 11, studying towards GCSEs in:</p>
-      <p class="tag-list">
-        <span class="tag">English Language</span><span class="tag">English Literature</span><span class="tag">Mathematics</span><span class="tag">Combined Science</span><span class="tag">Computer Science</span><span class="tag">Engineering</span><span class="tag">Photography</span><span class="tag">Religious Education</span>
-      </p>
-    </section>
+    <section class="section container">
+      <p class="eyebrow">education &amp; career</p>
+      <div class="two-col-grid">
+        <div id="education">
+          <h2>Education</h2>
+          <p>Currently in Year 11, studying towards GCSEs in:</p>
+          <p class="tag-list">
+            <span class="tag">English Language</span><span class="tag">English Literature</span><span class="tag">Mathematics</span><span class="tag">Combined Science</span><span class="tag">Computer Science</span><span class="tag">Engineering</span><span class="tag">Photography</span><span class="tag">Religious Education</span>
+          </p>
+        </div>
 
-    <section id="career" class="section container">
-      <p class="eyebrow">career</p>
-      <h2>Career Goals</h2>
-      <p>My primary career direction is electrical installation — I've researched Electrical Installation Levels 1&ndash;3, apprenticeship structures and progression routes into the trade.</p>
-      <p>Alongside that, I want to keep building on my networking and IT infrastructure experience. I see these as complementary: modern buildings need both electrical and data infrastructure, and I'm interested in work that sits across both.</p>
+        <div id="career">
+          <h2>Career Goals</h2>
+          <p>My primary career direction is electrical installation — I've researched Electrical Installation Levels 1&ndash;3, apprenticeship structures and progression routes into the trade.</p>
+          <p>Alongside that, I want to keep building on my networking and IT infrastructure experience — modern buildings need both, and I'm interested in work that sits across both.</p>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="section container">
