@@ -227,7 +227,16 @@ button:focus-visible {
 
 .hero h1 {
   font-size: 1.7rem;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.6rem;
+}
+
+.avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  margin: 0 0 0.75rem;
 }
 
 .hero-subtitle {
