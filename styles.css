@@ -433,6 +433,11 @@ button:focus-visible {
   flex-wrap: wrap;
 }
 
+.page-nav-top {
+  border-top: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
 .page-nav-link {
   display: flex;
   flex-direction: column;
