@@ -18,14 +18,13 @@
 <body>
   <header class="site-header">
     <nav class="container nav">
-      <a href="#" class="logo">Alex Cutrupi</a>
+      <a href="index.html" class="logo">Alex Cutrupi</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#career">Career</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education-career.html">Education &amp; Career</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li>
           <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
             <span class="icon-light">&#9728;</span>
@@ -38,40 +37,13 @@
 
   <main>
     <section class="hero container">
-      <svg class="hero-decoration" viewBox="0 0 280 200" fill="none" aria-hidden="true">
-        <path d="M0 40 H90 V90 H180" stroke="currentColor" stroke-width="2"/>
-        <path d="M20 140 H110 V100" stroke="currentColor" stroke-width="2"/>
-        <path d="M180 90 H240 V30 H280" stroke="currentColor" stroke-width="2"/>
-        <path d="M110 100 H200 V160 H260" stroke="currentColor" stroke-width="2"/>
-        <rect x="180" y="70" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2"/>
-        <circle cx="0" cy="40" r="4" fill="currentColor"/>
-        <circle cx="90" cy="40" r="4" fill="currentColor"/>
-        <circle cx="20" cy="140" r="4" fill="currentColor"/>
-        <circle cx="110" cy="100" r="4" fill="currentColor"/>
-        <circle cx="240" cy="30" r="4" fill="currentColor"/>
-        <circle cx="280" cy="30" r="4" fill="currentColor"/>
-        <circle cx="200" cy="160" r="4" fill="currentColor"/>
-        <circle cx="260" cy="160" r="4" fill="currentColor"/>
-      </svg>
-
-      <div class="hero-grid">
-        <div>
-          <p class="prompt">whoami</p>
-          <h1>Hi, I'm Alex Cutrupi.</h1>
-          <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
-          <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
-          <p class="tag-list">
-            <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
-          </p>
-        </div>
-
-        <dl class="quickfacts">
-          <div><dt>status</dt><dd>Year 11 student</dd></div>
-          <div><dt>base</dt><dd>United Kingdom</dd></div>
-          <div><dt>focus</dt><dd>Electrical + networking</dd></div>
-          <div><dt>building</dt><dd>Christmas light show</dd></div>
-        </dl>
-      </div>
+      <p class="prompt">whoami</p>
+      <h1>Hi, I'm Alex Cutrupi.</h1>
+      <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
+      <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
+      <p class="tag-list">
+        <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
+      </p>
     </section>
 
     <section id="about" class="section container">
@@ -79,181 +51,6 @@
       <h2>About</h2>
       <p>I'm a Year 11 student with a strong interest in IT infrastructure, networking, web development, electrical installation and technology more broadly. My longer-term interest is electrical installation and an electrical apprenticeship, alongside substantial hands-on experience I've built up with computers, networking and servers.</p>
       <p>I like taking on projects that combine physical, hands-on work — cabling, hardware, electronics — with the software and networking side that makes them run.</p>
-    </section>
-
-    <section id="projects" class="section container">
-      <p class="eyebrow">projects</p>
-      <h2>Projects</h2>
-      <p class="section-intro">A selection of things I've built, with the technologies behind each one.</p>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>Home Network Infrastructure</h3>
-            <span class="status status-built">Built</span>
-          </div>
-          <p>Designed and installed a home network covering structured cabling, fibre and Wi-Fi coverage planning. Includes Cat6/Cat6A cabling and RJ45 termination, a managed switch, and a UniFi access point and controller setup for consistent coverage and simple management.</p>
-          <p class="tag-list">
-            <span class="tag">Cat6/Cat6A</span><span class="tag">RJ45 termination</span><span class="tag">Fibre</span><span class="tag">UniFi</span><span class="tag">HP 2530-48G</span><span class="tag">Wi-Fi planning</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>API Presence Monitor</h3>
-            <span class="status status-built">Built</span>
-          </div>
-          <p>A Python application that periodically queries an API, detects status changes, stores timestamped JSON records and provides native desktop notifications. Handles polling, JSON parsing, file-based logging and basic statistics on detected changes.</p>
-          <p class="tag-list">
-            <span class="tag">Python</span><span class="tag">HTTP APIs</span><span class="tag">JSON</span><span class="tag">Logging</span><span class="tag">macOS notifications</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>Home Assistant Smart Lighting</h3>
-            <span class="status status-built">Built</span>
-          </div>
-          <p>Integrated a Philips Hue Dimmer Switch with Home Assistant and wrote custom YAML automations to give short and long button presses different behaviour, including debugging raw event data to get press detection reliable.</p>
-          <p class="tag-list">
-            <span class="tag">Home Assistant</span><span class="tag">YAML</span><span class="tag">Philips Hue</span><span class="tag">Event automation</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>Linux VPS &amp; Web Hosting</h3>
-            <span class="status status-built">Built</span>
-          </div>
-          <p>Deployed and administered an Ubuntu Server VPS (Hetzner), covering server setup, domain configuration and basic hosting architecture — the groundwork for exploring how a small hosting platform could work end to end.</p>
-          <p class="tag-list">
-            <span class="tag">Ubuntu Server</span><span class="tag">Hetzner</span><span class="tag">SSH</span><span class="tag">DNS/domains</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>PC Building &amp; Diagnostics</h3>
-            <span class="status status-progress">Ongoing</span>
-          </div>
-          <p>Hands-on PC building and hardware troubleshooting, including CPU/motherboard/cooling installation, PSU voltage testing with a multimeter, storage wiping and driver troubleshooting — with attention to ESD precautions throughout.</p>
-          <p class="tag-list">
-            <span class="tag">Intel Core i9-14900K</span><span class="tag">MSI Z790</span><span class="tag">AIO cooling</span><span class="tag">NVMe SSD</span><span class="tag">Multimeter testing</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>Network-Controlled Christmas Light Show</h3>
-            <span class="status status-design">In design</span>
-          </div>
-          <p>Planning a synchronised outdoor lighting display controlled over the network from a central outdoor cabinet, using xLights for sequencing, Falcon-family controllers, and addressable RGB (WS2811) fixtures — with attention to outdoor enclosures, cable glands and weather protection.</p>
-          <p class="tag-list">
-            <span class="tag">xLights</span><span class="tag">Falcon / FPP</span><span class="tag">DMX &amp; Art-Net</span><span class="tag">Raspberry Pi</span><span class="tag">WS2811</span>
-          </p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card-head">
-            <h3>UniFi Captive Portal Platform</h3>
-            <span class="status status-concept">Concept</span>
-          </div>
-          <p>Researching a centrally-hosted captive portal platform for businesses running UniFi networking equipment — an external, network-agnostic captive portal that a business's on-site UniFi gear can hand guests off to.</p>
-          <p class="tag-list">
-            <span class="tag">UniFi</span><span class="tag">Captive portals</span><span class="tag">APIs</span><span class="tag">Web development</span>
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" class="section container">
-      <p class="eyebrow">skills</p>
-      <h2>Skills</h2>
-
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Networking &amp; Infrastructure</h3>
-          <p class="tag-list">
-            <span class="tag">Cat6/6A/7 cabling</span><span class="tag">RJ45 termination</span><span class="tag">Fibre-optic networking</span><span class="tag">SFP modules</span><span class="tag">ONTs</span><span class="tag">Managed switches</span><span class="tag">VLANs</span><span class="tag">Static &amp; public/private IP</span><span class="tag">Wi-Fi planning &amp; AP placement</span><span class="tag">UniFi Network Controller</span><span class="tag">pfSense</span><span class="tag">OpenWrt</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Servers &amp; Hosting</h3>
-          <p class="tag-list">
-            <span class="tag">Linux VPS</span><span class="tag">Ubuntu Server</span><span class="tag">Hetzner Cloud</span><span class="tag">Domain configuration</span><span class="tag">Server deployment</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Programming &amp; Development</h3>
-          <p class="tag-list">
-            <span class="tag">Python</span><span class="tag">HTTP APIs</span><span class="tag">JSON</span><span class="tag">Bash / shell scripting</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Linux &amp; Command Line</h3>
-          <p class="tag-list">
-            <span class="tag">macOS Terminal</span><span class="tag">Ubuntu</span><span class="tag">SSH</span><span class="tag">curl</span><span class="tag">Homebrew</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Home Automation</h3>
-          <p class="tag-list">
-            <span class="tag">Home Assistant</span><span class="tag">YAML automations</span><span class="tag">Philips Hue</span><span class="tag">Event-driven automation</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Hardware</h3>
-          <p class="tag-list">
-            <span class="tag">PC building</span><span class="tag">Motherboards &amp; CPUs</span><span class="tag">AIO cooling</span><span class="tag">PSU testing</span><span class="tag">Hardware diagnostics</span><span class="tag">ESD precautions</span>
-          </p>
-        </div>
-
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <p class="tag-list">
-            <span class="tag">GitHub</span><span class="tag">Git</span><span class="tag">macOS</span><span class="tag">AI-assisted dev tools</span>
-          </p>
-        </div>
-      </div>
-
-      <h3 class="subheading">Currently exploring</h3>
-      <p class="section-intro">Concepts and technologies I've researched and am building understanding of, rather than things I've deployed professionally.</p>
-      <p class="tag-list">
-        <span class="tag tag-muted">Three-phase distribution concepts</span><span class="tag tag-muted">GRE tunnels</span><span class="tag tag-muted">BGP / IP-transit fundamentals</span><span class="tag tag-muted">DMX / Art-Net lighting protocols</span><span class="tag tag-muted">Hosting platform architecture</span>
-      </p>
-    </section>
-
-    <section class="section container">
-      <p class="eyebrow">education &amp; career</p>
-      <div class="two-col-grid">
-        <div id="education">
-          <h2>Education</h2>
-          <p>Currently in Year 11, studying towards GCSEs in:</p>
-          <p class="tag-list">
-            <span class="tag">English Language</span><span class="tag">English Literature</span><span class="tag">Mathematics</span><span class="tag">Combined Science</span><span class="tag">Computer Science</span><span class="tag">Engineering</span><span class="tag">Photography</span><span class="tag">Religious Education</span>
-          </p>
-        </div>
-
-        <div id="career">
-          <h2>Career Goals</h2>
-          <p>My primary career direction is electrical installation — I've researched Electrical Installation Levels 1&ndash;3, apprenticeship structures and progression routes into the trade.</p>
-          <p>Alongside that, I want to keep building on my networking and IT infrastructure experience — modern buildings need both, and I'm interested in work that sits across both.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section container">
-      <p class="eyebrow">contact</p>
-      <h2>Contact</h2>
-      <p>Reach out at <a href="mailto:alex@instantbay.us">alex@instantbay.us</a> or find me here:</p>
-      <ul class="social-links">
-        <li><a href="https://github.com/alexcutrupi" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
     </section>
   </main>
 
