@@ -14,6 +14,38 @@
   --max-width: 900px;
 }
 
+:root[data-theme="dark"] {
+  --color-bg: #0f1115;
+  --color-text: #e8e9ec;
+  --color-muted: #9aa0a8;
+  --color-accent: #60a5fa;
+  --color-border: #2a2d34;
+  --color-tag-bg: #1b1e24;
+  --color-status-built-bg: #14351f;
+  --color-status-built-text: #86efac;
+  --color-status-planning-bg: #3a2c0c;
+  --color-status-planning-text: #fcd34d;
+  --color-status-concept-bg: #23214a;
+  --color-status-concept-text: #c7d2fe;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0f1115;
+    --color-text: #e8e9ec;
+    --color-muted: #9aa0a8;
+    --color-accent: #60a5fa;
+    --color-border: #2a2d34;
+    --color-tag-bg: #1b1e24;
+    --color-status-built-bg: #14351f;
+    --color-status-built-text: #86efac;
+    --color-status-planning-bg: #3a2c0c;
+    --color-status-planning-text: #fcd34d;
+    --color-status-concept-bg: #23214a;
+    --color-status-concept-text: #c7d2fe;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -24,6 +56,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .container {
@@ -60,9 +93,52 @@ a:hover {
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   margin: 0;
   padding: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-tag-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+}
+
+.theme-toggle .icon-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-dark {
+  display: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle .icon-dark {
+    display: inline;
+  }
 }
 
 .hero {

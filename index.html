@@ -6,6 +6,14 @@
   <title>Alex Cutrupi</title>
   <meta name="description" content="Alex Cutrupi — Electrical, Networking &amp; IT Infrastructure. Student and builder working across networking, servers, automation and electronics.">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -18,6 +26,12 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#career">Career</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
