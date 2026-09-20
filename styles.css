@@ -85,6 +85,22 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
+/* When the interactive dot canvas takes over, hide the static CSS dots
+   underneath it so they don't double up. */
+html.has-dot-canvas body {
+  background-image: none;
+}
+
+#dot-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
