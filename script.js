@@ -1,5 +1,15 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Force a fresh Gravatar fetch on every load instead of trusting any
+// browser or CDN cache, so a newly-updated photo always shows up.
+(function () {
+  var avatar = document.getElementById("avatar");
+  if (!avatar) return;
+  var hash = avatar.getAttribute("data-gravatar-hash");
+  if (!hash) return;
+  avatar.src = "https://www.gravatar.com/avatar/" + hash + "?s=160&d=mp&t=" + Date.now();
+})();
+
 (function () {
   var root = document.documentElement;
   var toggle = document.getElementById("theme-toggle");
