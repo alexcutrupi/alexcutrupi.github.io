@@ -4,7 +4,14 @@
   --color-muted: #5f6368;
   --color-accent: #2563eb;
   --color-border: #e5e7eb;
-  --max-width: 860px;
+  --color-tag-bg: #f3f4f6;
+  --color-status-built-bg: #dcfce7;
+  --color-status-built-text: #166534;
+  --color-status-planning-bg: #fef3c7;
+  --color-status-planning-text: #92400e;
+  --color-status-concept-bg: #e0e7ff;
+  --color-status-concept-text: #3730a3;
+  --max-width: 900px;
 }
 
 * {
@@ -70,6 +77,17 @@ a:hover {
 .hero-subtitle {
   color: var(--color-muted);
   font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-body {
+  max-width: 640px;
+}
+
+.hero-tags {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
 }
 
 .section {
@@ -79,6 +97,15 @@ a:hover {
 
 .section h2 {
   margin-bottom: 1rem;
+}
+
+.section-intro {
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+}
+
+.subheading {
+  margin-top: 2.5rem;
 }
 
 .project-grid {
@@ -97,9 +124,74 @@ a:hover {
   margin-top: 0;
 }
 
+.project-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
 .project-link {
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.status {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-built {
+  background: var(--color-status-built-bg);
+  color: var(--color-status-built-text);
+}
+
+.status-planning {
+  background: var(--color-status-planning-bg);
+  color: var(--color-status-planning-text);
+}
+
+.status-concept {
+  background: var(--color-status-concept-bg);
+  color: var(--color-status-concept-text);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.tag {
+  background: var(--color-tag-bg);
+  color: var(--color-text);
+  font-size: 0.82rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+.tag-muted {
+  color: var(--color-muted);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.skill-category h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
 }
 
 .social-links {
