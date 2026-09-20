@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Alex Cutrupi</title>
+  <meta name="description" content="Get in touch with Alex Cutrupi.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="index.html" class="logo">Alex Cutrupi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education-career.html">Education &amp; Career</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section container">
+      <p class="eyebrow">contact</p>
+      <h1>Contact</h1>
+      <p>Reach out at <a href="mailto:alex@instantbay.us">alex@instantbay.us</a> or find me here:</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/alexcutrupi" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

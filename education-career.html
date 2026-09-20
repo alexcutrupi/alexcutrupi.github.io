@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education &amp; Career — Alex Cutrupi</title>
+  <meta name="description" content="Alex Cutrupi's education and career direction: electrical installation alongside networking and IT infrastructure.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="index.html" class="logo">Alex Cutrupi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education-career.html" class="active" aria-current="page">Education &amp; Career</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section container">
+      <p class="eyebrow">education &amp; career</p>
+      <h1 class="sr-only">Education &amp; Career</h1>
+      <div class="two-col-grid">
+        <div id="education">
+          <h2>Education</h2>
+          <p>Currently in Year 11, studying towards GCSEs in:</p>
+          <p class="tag-list">
+            <span class="tag">English Language</span><span class="tag">English Literature</span><span class="tag">Mathematics</span><span class="tag">Combined Science</span><span class="tag">Computer Science</span><span class="tag">Engineering</span><span class="tag">Photography</span><span class="tag">Religious Education</span>
+          </p>
+        </div>
+
+        <div id="career">
+          <h2>Career Goals</h2>
+          <p>My primary career direction is electrical installation — I've researched Electrical Installation Levels 1&ndash;3, apprenticeship structures and progression routes into the trade.</p>
+          <p>Alongside that, I want to keep building on my networking and IT infrastructure experience — modern buildings need both, and I'm interested in work that sits across both.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

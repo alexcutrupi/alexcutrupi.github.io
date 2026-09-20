@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Alex Cutrupi</title>
+  <meta name="description" content="Projects by Alex Cutrupi across home networking, Python, home automation, hosting and hardware.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav">
+      <a href="index.html" class="logo">Alex Cutrupi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education-career.html">Education &amp; Career</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section container">
+      <p class="eyebrow">projects</p>
+      <h1>Projects</h1>
+      <p class="section-intro">A selection of things I've built, with the technologies behind each one.</p>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>Home Network Infrastructure</h3>
+            <span class="status status-built">Built</span>
+          </div>
+          <p>Designed and installed a home network covering structured cabling, fibre and Wi-Fi coverage planning. Includes Cat6/Cat6A cabling and RJ45 termination, a managed switch, and a UniFi access point and controller setup for consistent coverage and simple management.</p>
+          <p class="tag-list">
+            <span class="tag">Cat6/Cat6A</span><span class="tag">RJ45 termination</span><span class="tag">Fibre</span><span class="tag">UniFi</span><span class="tag">HP 2530-48G</span><span class="tag">Wi-Fi planning</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>API Presence Monitor</h3>
+            <span class="status status-built">Built</span>
+          </div>
+          <p>A Python application that periodically queries an API, detects status changes, stores timestamped JSON records and provides native desktop notifications. Handles polling, JSON parsing, file-based logging and basic statistics on detected changes.</p>
+          <p class="tag-list">
+            <span class="tag">Python</span><span class="tag">HTTP APIs</span><span class="tag">JSON</span><span class="tag">Logging</span><span class="tag">macOS notifications</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>Home Assistant Smart Lighting</h3>
+            <span class="status status-built">Built</span>
+          </div>
+          <p>Integrated a Philips Hue Dimmer Switch with Home Assistant and wrote custom YAML automations to give short and long button presses different behaviour, including debugging raw event data to get press detection reliable.</p>
+          <p class="tag-list">
+            <span class="tag">Home Assistant</span><span class="tag">YAML</span><span class="tag">Philips Hue</span><span class="tag">Event automation</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>Linux VPS &amp; Web Hosting</h3>
+            <span class="status status-built">Built</span>
+          </div>
+          <p>Deployed and administered an Ubuntu Server VPS (Hetzner), covering server setup, domain configuration and basic hosting architecture — the groundwork for exploring how a small hosting platform could work end to end.</p>
+          <p class="tag-list">
+            <span class="tag">Ubuntu Server</span><span class="tag">Hetzner</span><span class="tag">SSH</span><span class="tag">DNS/domains</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>PC Building &amp; Diagnostics</h3>
+            <span class="status status-progress">Ongoing</span>
+          </div>
+          <p>Hands-on PC building and hardware troubleshooting, including CPU/motherboard/cooling installation, PSU voltage testing with a multimeter, storage wiping and driver troubleshooting — with attention to ESD precautions throughout.</p>
+          <p class="tag-list">
+            <span class="tag">Intel Core i9-14900K</span><span class="tag">MSI Z790</span><span class="tag">AIO cooling</span><span class="tag">NVMe SSD</span><span class="tag">Multimeter testing</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>Network-Controlled Christmas Light Show</h3>
+            <span class="status status-design">In design</span>
+          </div>
+          <p>Planning a synchronised outdoor lighting display controlled over the network from a central outdoor cabinet, using xLights for sequencing, Falcon-family controllers, and addressable RGB (WS2811) fixtures — with attention to outdoor enclosures, cable glands and weather protection.</p>
+          <p class="tag-list">
+            <span class="tag">xLights</span><span class="tag">Falcon / FPP</span><span class="tag">DMX &amp; Art-Net</span><span class="tag">Raspberry Pi</span><span class="tag">WS2811</span>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-head">
+            <h3>UniFi Captive Portal Platform</h3>
+            <span class="status status-concept">Concept</span>
+          </div>
+          <p>Researching a centrally-hosted captive portal platform for businesses running UniFi networking equipment — an external, network-agnostic captive portal that a business's on-site UniFi gear can hand guests off to.</p>
+          <p class="tag-list">
+            <span class="tag">UniFi</span><span class="tag">Captive portals</span><span class="tag">APIs</span><span class="tag">Web development</span>
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
