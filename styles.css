@@ -22,7 +22,7 @@
   --color-status-concept: #7c3aed;
 
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-  --max-width: 900px;
+  --max-width: 1080px;
 }
 
 :root[data-theme="dark"] {
@@ -81,7 +81,7 @@ body {
   background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--color-text) 14%, transparent) 1.5px, transparent 0);
   background-size: 24px 24px;
   background-attachment: fixed;
-  line-height: 1.5;
+  line-height: 1.65;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -222,7 +222,7 @@ button:focus-visible {
 }
 
 .hero {
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 
 .hero h1 {
@@ -263,13 +263,13 @@ button:focus-visible {
 }
 
 .section {
-  padding: 1.5rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   border-top: 1px solid var(--color-border);
 }
 
 .two-col-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.5rem 2rem;
 }
 
@@ -307,7 +307,7 @@ button:focus-visible {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  padding: 0.85rem 1rem;
+  padding: 1.4rem;
   color: var(--color-text);
   text-decoration: none;
   transition: border-color 0.15s ease;
@@ -338,7 +338,7 @@ button:focus-visible {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 0.85rem;
 }
 
@@ -346,7 +346,7 @@ button:focus-visible {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  padding: 0.85rem;
+  padding: 1.4rem;
 }
 
 .project-card p {
@@ -432,7 +432,7 @@ button:focus-visible {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.1rem;
   margin-bottom: 0.5rem;
 }
@@ -455,7 +455,7 @@ button:focus-visible {
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-accent);
   border-radius: 10px;
-  padding: 0.85rem 1rem;
+  padding: 1.4rem;
   margin: 0 0 1rem;
 }
 
@@ -581,4 +581,57 @@ button:focus-visible {
   * {
     transition: none !important;
   }
+}
+
+/* A little more room to build, with the original copper / terminal character. */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+h1, h2, h3 { line-height: 1.25; letter-spacing: -0.025em; }
+main > .section:first-child { border-top: 0; }
+main > .section:first-child h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 1.5rem; }
+.nav-links a { color: var(--color-muted); font-size: 0.9rem; display: inline-block; padding: 0.4rem 0; }
+.nav-links a:hover { color: var(--color-accent); }
+.nav-links a.active { text-decoration: underline; text-underline-offset: 0.6rem; text-decoration-thickness: 2px; }
+.logo { letter-spacing: -0.035em; font-size: 1.1rem; }
+.home-hero { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 3rem; align-items: center; padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.home-hero h1 { font-size: clamp(2.7rem, 6vw, 4.4rem); letter-spacing: -0.055em; margin: 0.5rem 0 1rem; }
+.accent { color: var(--color-accent); }
+.hero-subtitle { font-size: 1.2rem; color: var(--color-text); max-width: 32rem; margin-bottom: 1rem; }
+.hero-body { color: var(--color-muted); margin-bottom: 1.25rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.7rem 1.1rem; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-surface); color: var(--color-text); font-size: 0.9rem; font-weight: 600; }
+.button:hover { border-color: var(--color-accent); text-decoration: none; }
+.button-primary { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+.hero-profile { padding: 1.8rem; background: var(--color-surface); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: 14px; box-shadow: 0 12px 32px rgb(0 0 0 / 0.04); }
+.hero-profile .avatar { width: 112px; height: 112px; margin-bottom: 1.2rem; }
+.profile-name { font-weight: 700; margin: 0 0 0.4rem; }
+.profile-caption { font-size: 0.85rem; color: var(--color-muted); margin: 0; }
+.profile-topics { display: grid; gap: 0.5rem; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1.3rem; font: 0.75rem var(--font-mono); color: var(--color-muted); }
+.nav-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.nav-card { transition: border-color 0.18s ease, transform 0.18s ease; }
+.nav-card:hover { transform: translateY(-3px); }
+.nav-card h3 { margin-bottom: 0.6rem; }
+.project-grid { gap: 1rem; }
+.project-card-head { flex-wrap: wrap; }
+.project-card .tag-list { margin-top: 1rem; }
+.skill-category { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; }
+.skill-category h3 { margin-top: 0; margin-bottom: 1rem; }
+#about > p:not(.eyebrow) { max-width: 48rem; color: var(--color-muted); }
+.social-links a { display: inline-block; border: 1px solid var(--color-border); border-radius: 8px; padding: 0.65rem 1.2rem; background: var(--color-surface); }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 20; padding: 0.75rem 1rem; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: 6px; }
+.skip-link:focus { top: 1rem; }
+@media (max-width: 760px) {
+  .nav { justify-content: center; }
+  .logo { width: 100%; text-align: center; }
+  .nav-links { gap: 0.35rem 1rem; justify-content: center; }
+  .nav-links a { font-size: 0.8rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .home-hero { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .hero-profile { display: none; }
+  .section { padding-top: 2rem; padding-bottom: 2rem; }
+}
+@media (max-width: 440px) {
+  .nav-grid { grid-template-columns: minmax(0, 1fr); }
+  .page-nav-link { min-width: 0; flex: 1; }
+  .page-nav-title { font-size: 0.85rem; }
+  .tag { overflow-wrap: anywhere; }
 }

@@ -1,26 +1,24 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Force a fresh Gravatar fetch on every load instead of trusting any
-// browser or CDN cache, so a newly-updated photo always shows up.
-(function () {
-  var avatar = document.getElementById("avatar");
-  if (!avatar) return;
-  var hash = avatar.getAttribute("data-gravatar-hash");
-  if (!hash) return;
-  avatar.src = "https://www.gravatar.com/avatar/" + hash + "?s=160&d=mp&t=" + Date.now();
-})();
-
 (function () {
   var root = document.documentElement;
   var toggle = document.getElementById("theme-toggle");
   if (!toggle) return;
+
+  function updateLabel() {
+    var dark = (root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+    toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  }
+  updateLabel();
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateLabel);
 
   toggle.addEventListener("click", function () {
     var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     var current = root.getAttribute("data-theme") || (prefersDark ? "dark" : "light");
     var next = current === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
+    try { localStorage.setItem("theme", next); } catch (error) {}
+    updateLabel();
     if (window.__updateDotColor) window.__updateDotColor();
   });
 })();
