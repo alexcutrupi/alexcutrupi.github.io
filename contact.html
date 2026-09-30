@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     (function () {
-      var saved = localStorage.getItem("theme");
+      var saved;
+      try { saved = localStorage.getItem("theme"); } catch (error) {}
       if (saved === "light" || saved === "dark") {
         document.documentElement.setAttribute("data-theme", saved);
       }
@@ -16,8 +17,9 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <nav class="container nav">
+    <nav class="container nav" aria-label="Main navigation">
       <a href="index.html" class="logo">Alex Cutrupi</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -35,25 +37,15 @@
     </nav>
   </header>
 
-  <nav class="page-nav page-nav-top container" aria-label="Page navigation">
-    <a class="page-nav-link page-nav-prev" href="education-career.html">
-      <span class="page-nav-label">&larr; prev</span>
-      <span class="page-nav-title">Education &amp; Career</span>
-    </a>
-    <a class="page-nav-link page-nav-next" href="index.html">
-      <span class="page-nav-label">next &rarr;</span>
-      <span class="page-nav-title">Home</span>
-    </a>
-  </nav>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="section container">
       <p class="eyebrow">contact</p>
       <h1>Contact</h1>
+      <p class="section-intro">Have a project to talk about, or just want to say hello?</p>
       <p>Reach out at <a href="mailto:alex@instantbay.us">alex@instantbay.us</a> or find me here:</p>
       <ul class="social-links">
         <li><a href="https://github.com/alexcutrupi" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </section>
   </main>

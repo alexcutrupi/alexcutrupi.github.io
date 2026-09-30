@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     (function () {
-      var saved = localStorage.getItem("theme");
+      var saved;
+      try { saved = localStorage.getItem("theme"); } catch (error) {}
       if (saved === "light" || saved === "dark") {
         document.documentElement.setAttribute("data-theme", saved);
       }
@@ -16,8 +17,9 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <nav class="container nav">
+    <nav class="container nav" aria-label="Main navigation">
       <a href="index.html" class="logo">Alex Cutrupi</a>
       <ul class="nav-links">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
@@ -35,36 +37,42 @@
     </nav>
   </header>
 
-  <nav class="page-nav page-nav-top container" aria-label="Page navigation">
-    <a class="page-nav-link page-nav-next" href="projects.html">
-      <span class="page-nav-label">next &rarr;</span>
-      <span class="page-nav-title">Projects</span>
-    </a>
-  </nav>
 
-  <main>
-    <section class="hero container">
+  <main id="main" tabindex="-1">
+    <section class="hero container home-hero">
+      <div class="hero-copy">
       <p class="prompt">whoami</p>
-      <h1>Hi, I'm Alex Cutrupi.</h1>
-      <img
-        class="avatar"
-        id="avatar"
-        data-gravatar-hash="7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba"
-        src="https://www.gravatar.com/avatar/7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba?s=160&d=mp"
-        alt="Alex Cutrupi"
-        width="80"
-        height="80"
-        loading="lazy"
-      >
+      <h1>Hi, I'm Alex<span class="accent">.</span></h1>
       <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
       <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
       <p class="tag-list">
         <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
       </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="projects.html">Explore my projects <span aria-hidden="true">&rarr;</span></a>
+        <a class="button" href="contact.html">Get in touch</a>
+      </div>
+      </div>
+      <aside class="hero-profile" aria-label="My interests">
+      <img
+        class="avatar"
+        id="avatar"
+        data-gravatar-hash="7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba"
+        src="https://www.gravatar.com/avatar/7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba?s=224&d=mp"
+        alt="Alex Cutrupi"
+        width="112"
+        height="112"
+        fetchpriority="high"
+      >
+        <p class="profile-name">Alex Cutrupi</p>
+        <p class="profile-caption">Hands-on with hardware.<br>Curious about what makes it work.</p>
+        <div class="profile-topics"><span>01 / Electrical</span><span>02 / Networks</span><span>03 / Software</span></div>
+      </aside>
     </section>
 
     <section class="section container">
       <p class="eyebrow">explore</p>
+      <h2>A few things about me</h2>
       <div class="nav-grid">
         <a class="nav-card" href="projects.html">
           <h3>Projects <span aria-hidden="true">&rarr;</span></h3>
