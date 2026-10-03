@@ -674,3 +674,5 @@ main > .section:first-child h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 
 .visit-dates { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0.75rem 0 0; }
 .visit-dates li { background: var(--color-tag-bg); border-radius: 6px; padding: 0.3rem 0.55rem; font: 0.7rem var(--font-mono); color: var(--color-muted); }
 .section .visit-note { color: var(--color-muted); font-size: 0.8rem; margin: 0.8rem 0 0; }
+
+.social-card-action { display: inline-block; margin-top: 1.25rem; color: var(--color-accent); font-size: 0.85rem; font-weight: 600; }
