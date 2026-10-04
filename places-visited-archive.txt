@@ -1,0 +1,498 @@
+Places Visited — archived weekday entries
+Saved on 4 October 2026.
+
+Weekday dates outside school holidays were hidden from the website.
+Original visit totals and all place cards are retained.
+School INSET days and bank holidays were kept as days off school.
+St Peter’s calendars used for 2024–25, 2025–26 and 2026–27:
+https://files.schudio.com/stpeterwigan/files/documents/term-dates/term-dates-2024-2025_v2.pdf
+https://files.schudio.com/stpeterwigan/files/documents/term-dates/term-dates-2025-2026-V2.pdf
+https://files.schudio.com/stpeterwigan/files/documents/term-dates/term-dates-2026-2027.pdf
+For older dates, August was treated as summer holiday and Wigan’s
+2023–24 calendar was used for September 2023 and July 2024:
+https://www.wigan.gov.uk/Docs/PDF/Resident/Education/Schools/School-working-pattern-2023-24.pdf
+School-specific exceptions for those older dates have not been verified.
+The 2025–26 calendar’s May half-term end year typo is interpreted as 2026.
+
+Restore individual dates to the matching place’s visit-dates list and
+update its latest displayed date. Original counts are already retained. The full original HTML
+is also saved below, including cards with no remaining dated visits.
+This archive is published with the website for future restoration.
+
+REMOVED VISITS
+Alton Towers / Uttoxeter | 2023-09-07 | Thursday | 7 Sep 2023
+Alton Towers / Uttoxeter | 2026-06-25 | Thursday | 25 Jun 2026
+Alton Towers / Uttoxeter | 2026-07-14 | Tuesday | 14 Jul 2026
+Alton Towers / Uttoxeter | 2026-09-21 | Monday | 21 Sep 2026
+Alton Towers / Uttoxeter | 2026-10-02 | Friday | 2 Oct 2026
+London | 2026-03-31 | Tuesday | 31 Mar 2026
+London | 2026-04-01 | Wednesday | 1 Apr 2026
+London | 2026-04-02 | Thursday | 2 Apr 2026
+London | 2026-04-23 | Thursday | 23 Apr 2026
+London | 2026-04-24 | Friday | 24 Apr 2026
+London | 2026-06-10 | Wednesday | 10 Jun 2026
+London | 2026-06-11 | Thursday | 11 Jun 2026
+London | 2026-06-19 | Friday | 19 Jun 2026
+London | 2026-07-01 | Wednesday | 1 Jul 2026
+Shrewsbury | 2026-03-10 | Tuesday | 10 Mar 2026
+Shrewsbury | 2026-03-17 | Tuesday | 17 Mar 2026
+Shrewsbury | 2026-05-21 | Thursday | 21 May 2026
+Shrewsbury | 2026-09-04 | Friday | 4 Sep 2026
+Manchester | 2026-06-09 | Tuesday | 9 Jun 2026
+Manchester | 2026-06-11 | Thursday | 11 Jun 2026
+Manchester | 2026-07-14 | Tuesday | 14 Jul 2026
+Brighton | 2026-04-02 | Thursday | 2 Apr 2026
+Crewe | 2026-05-21 | Thursday | 21 May 2026
+Crewe | 2026-10-02 | Friday | 2 Oct 2026
+Liverpool | 2024-10-31 | Thursday | 31 Oct 2024
+Liverpool | 2026-04-30 | Thursday | 30 Apr 2026
+Preston | 2026-06-12 | Friday | 12 Jun 2026
+
+ORIGINAL places-visited.html (before filtering)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places Visited — Alex Cutrupi</title>
+  <meta name="description" content="A travel journal of places visited by Alex Cutrupi, with trips and memories along the way.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem("theme"); } catch (error) {}
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="logo">Alex Cutrupi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="education-career.html">Education &amp; Career</a></li>
+        <li><a href="places-visited.html" class="active" aria-current="page">Places Visited</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="main" tabindex="-1">
+    <section class="section container places-section">
+      <p class="eyebrow">beyond the desk</p>
+      <h1>Places Visited<span class="accent">.</span></h1>
+      <p class="section-intro">A little travel journal — the places, trips and memories along the way.</p>
+      <div class="travel-journal">
+        <div class="travel-art" aria-hidden="true">
+          <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="120" cy="120" r="94" stroke="currentColor" stroke-width="1"/>
+            <circle cx="120" cy="120" r="72" stroke="currentColor" stroke-width="1" stroke-dasharray="2 8"/>
+            <path d="M120 12V32M120 208V228M12 120H32M208 120H228" stroke="currentColor" stroke-width="2"/>
+            <path d="M145 65L130 130L65 145L110 110Z" fill="currentColor" opacity=".18"/>
+            <path d="M145 65L130 130L65 145L110 110Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M145 65L110 110L65 145" stroke="currentColor" stroke-width="2"/>
+            <circle cx="120" cy="120" r="5" fill="currentColor"/>
+          </svg>
+          <span class="travel-art-caption">a few stories from further afield</span>
+        </div>
+        <div class="travel-note">
+          <p class="eyebrow">travel notes</p>
+          <h2>From city days to theme park trips.</h2>
+          <p>A record of the places I’ve been, including train connections and airport visits. London is my most frequently recorded stop.</p>
+          <dl class="travel-stats">
+            <div><dt>Places</dt><dd>18</dd></div>
+            <div><dt>Recorded visits</dt><dd>96</dd></div>
+            <div><dt>Years</dt><dd>2023–26</dd></div>
+          </dl>
+          <a class="button" href="index.html">Back to the portfolio <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="places-heading">
+        <h2>My stops along the way</h2>
+        <p>Recorded dates from June 2023 to October 2026. A journey can include more than one stop; Crewe also includes connections without recorded dates.</p>
+      </div>
+      <div class="places-grid">
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🎢</span>
+            <span class="visit-count">24 identified visits</span>
+          </div>
+          <h3>Alton Towers / Uttoxeter</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-10-02">2 Oct 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2023-09-07">7 Sep 2023</time></li>
+                <li><time datetime="2024-03-16">16 Mar 2024</time></li>
+                <li><time datetime="2025-10-25">25 Oct 2025</time></li>
+                <li><time datetime="2025-10-30">30 Oct 2025</time></li>
+                <li><time datetime="2025-11-08">8 Nov 2025</time></li>
+                <li><time datetime="2026-03-14">14 Mar 2026</time></li>
+                <li><time datetime="2026-03-28">28 Mar 2026</time></li>
+                <li><time datetime="2026-04-03">3 Apr 2026</time></li>
+                <li><time datetime="2026-04-18">18 Apr 2026</time></li>
+                <li><time datetime="2026-04-19">19 Apr 2026</time></li>
+                <li><time datetime="2026-05-23">23 May 2026</time></li>
+                <li><time datetime="2026-06-06">6 Jun 2026</time></li>
+                <li><time datetime="2026-06-25">25 Jun 2026</time></li>
+                <li><time datetime="2026-06-27">27 Jun 2026</time></li>
+                <li><time datetime="2026-07-11">11 Jul 2026</time></li>
+                <li><time datetime="2026-07-14">14 Jul 2026</time></li>
+                <li><time datetime="2026-07-18">18 Jul 2026</time></li>
+                <li><time datetime="2026-07-22">22 Jul 2026</time></li>
+                <li><time datetime="2026-07-25">25 Jul 2026</time></li>
+                <li><time datetime="2026-08-29">29 Aug 2026</time></li>
+                <li><time datetime="2026-09-19">19 Sep 2026</time></li>
+                <li><time datetime="2026-09-21">21 Sep 2026</time></li>
+                <li><time datetime="2026-09-26">26 Sep 2026</time></li>
+                <li><time datetime="2026-10-02">2 Oct 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏙️</span>
+            <span class="visit-count">34 visits</span>
+          </div>
+          <h3>London</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-08-22">22 Aug 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2024-07-25">25 Jul 2024</time></li>
+                <li><time datetime="2024-07-26">26 Jul 2024</time></li>
+                <li><time datetime="2024-07-27">27 Jul 2024</time></li>
+                <li><time datetime="2024-08-25">25 Aug 2024</time></li>
+                <li><time datetime="2025-01-02">2 Jan 2025</time></li>
+                <li><time datetime="2025-01-03">3 Jan 2025</time></li>
+                <li><time datetime="2025-01-04">4 Jan 2025</time></li>
+                <li><time datetime="2025-04-26">26 Apr 2025</time></li>
+                <li><time datetime="2025-04-27">27 Apr 2025</time></li>
+                <li><time datetime="2025-05-28">28 May 2025</time></li>
+                <li><time datetime="2025-05-29">29 May 2025</time></li>
+                <li><time datetime="2025-08-13">13 Aug 2025</time></li>
+                <li><time datetime="2025-08-14">14 Aug 2025</time></li>
+                <li><time datetime="2025-08-15">15 Aug 2025</time></li>
+                <li><time datetime="2025-12-20">20 Dec 2025</time></li>
+                <li><time datetime="2025-12-22">22 Dec 2025</time></li>
+                <li><time datetime="2026-01-10">10 Jan 2026</time></li>
+                <li><time datetime="2026-03-31">31 Mar 2026</time></li>
+                <li><time datetime="2026-04-01">1 Apr 2026</time></li>
+                <li><time datetime="2026-04-02">2 Apr 2026</time></li>
+                <li><time datetime="2026-04-23">23 Apr 2026</time></li>
+                <li><time datetime="2026-04-24">24 Apr 2026</time></li>
+                <li><time datetime="2026-04-25">25 Apr 2026</time></li>
+                <li><time datetime="2026-05-26">26 May 2026</time></li>
+                <li><time datetime="2026-06-10">10 Jun 2026</time></li>
+                <li><time datetime="2026-06-11">11 Jun 2026</time></li>
+                <li><time datetime="2026-06-19">19 Jun 2026</time></li>
+                <li><time datetime="2026-07-01">1 Jul 2026</time></li>
+                <li><time datetime="2026-07-21">21 Jul 2026</time></li>
+                <li><time datetime="2026-07-22">22 Jul 2026</time></li>
+                <li><time datetime="2026-08-03">3 Aug 2026</time></li>
+                <li><time datetime="2026-08-20">20 Aug 2026</time></li>
+                <li><time datetime="2026-08-21">21 Aug 2026</time></li>
+                <li><time datetime="2026-08-22">22 Aug 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏰</span>
+            <span class="visit-count">7 visits</span>
+          </div>
+          <h3>Shrewsbury</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-09-04">4 Sep 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-03-07">7 Mar 2026</time></li>
+                <li><time datetime="2026-03-10">10 Mar 2026</time></li>
+                <li><time datetime="2026-03-17">17 Mar 2026</time></li>
+                <li><time datetime="2026-04-04">4 Apr 2026</time></li>
+                <li><time datetime="2026-05-21">21 May 2026</time></li>
+                <li><time datetime="2026-08-08">8 Aug 2026</time></li>
+                <li><time datetime="2026-09-04">4 Sep 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🐝</span>
+            <span class="visit-count">5 visits</span>
+          </div>
+          <h3>Manchester</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-07-25">25 Jul 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-06-09">9 Jun 2026</time></li>
+                <li><time datetime="2026-06-11">11 Jun 2026</time></li>
+                <li><time datetime="2026-06-14">14 Jun 2026</time></li>
+                <li><time datetime="2026-07-14">14 Jul 2026</time></li>
+                <li><time datetime="2026-07-25">25 Jul 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">✈️</span>
+            <span class="visit-count">2 visits</span>
+          </div>
+          <h3>Manchester Airport</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-08-12">12 Aug 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-01-05">5 Jan 2026</time></li>
+                <li><time datetime="2026-08-12">12 Aug 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏖️</span>
+            <span class="visit-count">3 visits</span>
+          </div>
+          <h3>Brighton</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-04-25">25 Apr 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2025-08-15">15 Aug 2025</time></li>
+                <li><time datetime="2026-04-02">2 Apr 2026</time></li>
+                <li><time datetime="2026-04-25">25 Apr 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏰</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>Chester</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-06-26">26 Jun 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-06-26">26 Jun 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🚉</span>
+            <span class="visit-count">2 visits</span>
+          </div>
+          <h3>Warrington</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-08-20">20 Aug 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-08-03">3 Aug 2026</time></li>
+                <li><time datetime="2026-08-20">20 Aug 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🚉</span>
+            <span class="visit-count">2+ visits</span>
+          </div>
+          <h3>Crewe</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-10-02">2 Oct 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-05-21">21 May 2026</time></li>
+                <li><time datetime="2026-10-02">2 Oct 2026</time></li>
+            </ul>
+              <p class="visit-note">Also passed through on other journeys as a connection; dates aren’t listed.</p>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🚉</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>Stockport</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-06-14">14 Jun 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-06-14">14 Jun 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🇫🇷</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>France</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2023-07-16">16 Jul 2023</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2023-07-16">16 Jul 2023</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🌊</span>
+            <span class="visit-count">6 visits</span>
+          </div>
+          <h3>Llandudno</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2025-08-10">10 Aug 2025</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2023-06-24">24 Jun 2023</time></li>
+                <li><time datetime="2023-08-16">16 Aug 2023</time></li>
+                <li><time datetime="2024-08-15">15 Aug 2024</time></li>
+                <li><time datetime="2024-09-07">7 Sep 2024</time></li>
+                <li><time datetime="2025-02-01">1 Feb 2025</time></li>
+                <li><time datetime="2025-08-10">10 Aug 2025</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏰</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>York</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2024-08-13">13 Aug 2024</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2024-08-13">13 Aug 2024</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🎵</span>
+            <span class="visit-count">2 visits</span>
+          </div>
+          <h3>Liverpool</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-04-30">30 Apr 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2024-10-31">31 Oct 2024</time></li>
+                <li><time datetime="2026-04-30">30 Apr 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏙️</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>Preston</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-06-12">12 Jun 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-06-12">12 Jun 2026</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🏘️</span>
+            <span class="visit-count">2 visits</span>
+          </div>
+          <h3>Leyland</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2025-08-05">5 Aug 2025</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2024-08-17">17 Aug 2024</time></li>
+                <li><time datetime="2025-08-05">5 Aug 2025</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🌊</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>Southport</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2025-10-11">11 Oct 2025</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2025-10-11">11 Oct 2025</time></li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="place-card">
+          <div class="place-card-head">
+            <span class="place-icon" aria-hidden="true">🎢</span>
+            <span class="visit-count">1 visit</span>
+          </div>
+          <h3>Thorpe Park</h3>
+          <p class="place-latest">Latest recorded visit · <time datetime="2026-05-26">26 May 2026</time></p>
+          <details class="visit-history">
+            <summary>View visit dates</summary>
+            <ul class="visit-dates">
+                <li><time datetime="2026-05-26">26 May 2026</time></li>
+            </ul>
+          </details>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="page-nav container" aria-label="Page navigation">
+    <a class="page-nav-link page-nav-prev" href="education-career.html">
+      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-title">Education &amp; Career</span>
+    </a>
+    <a class="page-nav-link page-nav-next" href="socials.html">
+      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-title">Socials</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
