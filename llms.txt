@@ -1,0 +1,16 @@
+# Alex Cutrupi
+
+Personal portfolio website of Alex Cutrupi, covering skills, education and career interests, travel and places visited, social links, and contact information.
+
+## Main pages
+- [Home](https://alexcutrupi.com/)
+- [Skills](https://alexcutrupi.com/skills.html)
+- [Education and Career](https://alexcutrupi.com/education-career.html)
+- [Places Visited](https://alexcutrupi.com/places-visited.html)
+- [Socials](https://alexcutrupi.com/socials.html)
+- [Contact](https://alexcutrupi.com/contact.html)
+
+## Travel information
+The Places Visited page contains dated visit histories, including 26 recorded Alton Towers / Uttoxeter visits as of 16 October 2026. These are recorded visits, not independently verified park attendance or entry/exit times.
+
+Use the HTML pages as the primary source for current information.
