@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Projects — Alex Cutrupi</title>
+  <meta name="description" content="BlastHost: my hands-on hosting infrastructure project, covering Linux servers, Next.js, networking, email and deployment.">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem("theme"); } catch (error) {}
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+  <link rel="canonical" href="https://alexcutrupi.com/past-projects.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <ul class="nav-links" id="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="past-projects.html" class="active" aria-current="page">Past Projects</a></li>
+        <li><a href="education-career.html">Education &amp; Career</a></li>
+        <li><a href="places-visited.html">Places Visited</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="icon-light">&#9728;</span>
+            <span class="icon-dark">&#9789;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="main" tabindex="-1">
+    <section class="section container projects-page" aria-labelledby="projects-title">
+      <p class="eyebrow">From idea to infrastructure</p>
+      <h1 id="projects-title">Past projects<span class="accent">.</span></h1>
+      <p class="section-intro">A closer look at the systems I’ve built, the problems I’ve worked through and what I learned along the way.</p>
+
+      <article class="project-study" aria-labelledby="blasthost-title">
+        <header class="project-overview">
+          <div>
+            <p class="eyebrow">01 / Hosting infrastructure &amp; web platform</p>
+            <h2 id="blasthost-title">BlastHost</h2>
+            <p>I developed and managed infrastructure for BlastHost, a hosting brand associated with InstantBay. The project brought together Linux servers, a custom website, game server management, billing APIs and an independent email server.</p>
+            <p>I personally configured servers, installed services, developed the frontend and troubleshot the connections between them, with infrastructure intended to support services such as Minecraft hosting.</p>
+          </div>
+          <dl class="project-facts">
+            <div><dt>Work covered</dt><dd>July 2025 – January 2026</dd></div>
+            <div><dt>Project domain</dt><dd>blasthost.net</dd></div>
+            <div><dt>Brand association</dt><dd>InstantBay</dd></div>
+            <div><dt>My work</dt><dd>Infrastructure, development &amp; deployment</dd></div>
+          </dl>
+        </header>
+
+        <section class="project-chapter" aria-labelledby="systems-title">
+          <div class="chapter-heading"><p class="eyebrow">The systems</p><h3 id="systems-title">What I worked on</h3></div>
+          <div class="project-work-grid">
+            <section><h4>Linux infrastructure</h4><p>Administered a Debian 12 bare-metal home server, <code>blasthost-node1</code>, and used VPS infrastructure for public connectivity. Worked with Debian and Ubuntu, service installation, permissions, firewall rules and routing.</p></section>
+            <section><h4>Game server management</h4><p>Worked with an existing Pterodactyl installation on Ubuntu, explored its Laravel views and frontend assets, and created a BlastHost theme directory to customise the panel’s appearance and server layout. Also investigated adding AdSense to the interface.</p></section>
+            <section><h4>Custom web platform</h4><p>Built a Next.js frontend using JavaScript, Node.js, Tailwind-related tooling and Turbopack. Worked with Next.js 15.4.6 in August 2025 and 16.1.4 in January 2026, deploying with Nginx and a systemd service.</p></section>
+            <section><h4>Billing API integration</h4><p>Connected the frontend to the WHMCS API, using <code>GetProducts</code> in <code>lib/products.ts</code> to retrieve hosting packages. Troubleshot API IP restrictions. The full ordering, payment and provisioning flow was not confirmed complete.</p></section>
+            <section><h4>Independent email server</h4><p>Configured <code>blasthost-mail</code> with Debian, Postfix, Dovecot, MariaDB and Let’s Encrypt, using Swaks for SMTP testing. Fixed SQL-backed mailbox authentication and tested SMTP submission and STARTTLS.</p></section>
+            <section><h4>Monitoring &amp; firewall configuration</h4><p>Installed and configured Netdata, inspected monitoring settings and investigated access restrictions for its dashboard. Used UFW rules while configuring server access and network services.</p></section>
+          </div>
+        </section>
+
+        <section class="project-chapter" aria-labelledby="network-title">
+          <div class="chapter-heading"><p class="eyebrow">Connecting the infrastructure</p><h3 id="network-title">Home server meets VPS</h3></div>
+          <p class="project-lead">One objective was to route traffic from the home-hosted Minecraft infrastructure through a public VPS. This involved VPN tunnels, routing, NAT, port forwarding and firewall configuration.</p>
+          <figure class="project-network">
+            <div class="network-flow"><div><strong>Public VPS</strong><span>Public connectivity &amp; routing</span></div><span class="network-arrow" aria-hidden="true">↔</span><div><strong>VPN tunnel</strong><span>WireGuard / OpenVPN experiments</span></div><span class="network-arrow" aria-hidden="true">↔</span><div><strong>Home server</strong><span>Linux &amp; game hosting infrastructure</span></div></div>
+            <figcaption>Conceptual view of the networking work in August 2025, rather than a verified current deployment.</figcaption>
+          </figure>
+          <dl class="project-outcomes">
+            <div><dt>OpenVPN</dt><dd>Installed the server on Debian and successfully connected from macOS, with the client reporting “Initialization Sequence Completed”.</dd></div>
+            <div><dt>GRE tunnels</dt><dd>Experimented with a VPS-to-home tunnel. The home interface reached an UP state, but VPS interface problems remained unresolved.</dd></div>
+            <div><dt>WireGuard</dt><dd>Configured a tunnel and full-tunnel routing, resolved a missing <code>resolvconf</code> dependency and got the service running. End-to-end traffic routing was not confirmed complete.</dd></div>
+          </dl>
+        </section>
+
+        <section class="project-chapter" aria-labelledby="timeline-title">
+          <div class="chapter-heading"><p class="eyebrow">Project development</p><h3 id="timeline-title">From services to deployment</h3></div>
+          <ol class="project-timeline">
+            <li><time datetime="2025-07-31">31 July 2025</time><div><h4>Email infrastructure</h4><p>Worked on Postfix, Dovecot, MariaDB and SMTP; fixed database-backed email authentication.</p></div></li>
+            <li><time datetime="2025-08-01">1 August 2025</time><div><h4>Server monitoring</h4><p>Configured Netdata and investigated monitoring dashboard access and firewall settings.</p></div></li>
+            <li><time datetime="2025-08-17">17–20 August 2025</time><div><h4>Website, billing &amp; panel</h4><p>Developed the Next.js frontend, worked on WHMCS product retrieval and explored Pterodactyl customisation.</p></div></li>
+            <li><time datetime="2025-08-21">21 August 2025</time><div><h4>A working VPN connection</h4><p>Installed OpenVPN and successfully connected from my Mac.</p></div></li>
+            <li><time datetime="2025-08-27">27 August 2025</time><div><h4>Brand structure</h4><p>Identified BlastHost as a brand or sub-company of InstantBay.</p></div></li>
+            <li><time datetime="2025-08-31">31 August 2025</time><div><h4>Tunnelling &amp; routing</h4><p>Experimented with GRE and moved toward WireGuard for connectivity between the home server and VPS.</p></div></li>
+            <li><time datetime="2026-01-26">26 January 2026</time><div><h4>Continued website deployment</h4><p>Worked through port conflicts, stale development locks, permissions and a scrolling issue. Achieved a successful production build; the development server also ran on port 3002.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="project-chapter project-reflection" aria-labelledby="learning-title">
+          <div class="chapter-heading"><p class="eyebrow">What I took from it</p><h3 id="learning-title">Working across the whole stack</h3></div>
+          <p>BlastHost gave me practical experience connecting physical servers, network tunnels, databases, web applications and email services. Much of the learning came from reading logs, tracing network errors, fixing permissions and resolving build and service startup failures.</p>
+          <p>Several components reached working milestones while others were still being developed or troubleshot. This case study describes that technical work; it does not establish a commercial launch, completed billing system or the services’ current operating status.</p>
+          <p class="tag-list"><span class="tag">Linux</span><span class="tag">Next.js</span><span class="tag">Nginx &amp; systemd</span><span class="tag">Pterodactyl</span><span class="tag">WHMCS API</span><span class="tag">Postfix &amp; Dovecot</span><span class="tag">MariaDB</span><span class="tag">VPNs &amp; routing</span><span class="tag">Netdata</span></p>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <nav class="page-nav container" aria-label="Page navigation">
+    <a class="page-nav-link page-nav-prev" href="skills.html">
+      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-title">Skills</span>
+    </a>
+    <a class="page-nav-link page-nav-next" href="education-career.html">
+      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-title">Education &amp; Career</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
