@@ -232,3 +232,7 @@ p { margin:0 0 1rem; }
 @media(max-width:650px) { .nav-grid:has(> .nav-card:last-child:nth-child(6)) > .nav-card { grid-column:auto; } }
 
 .project-scope-note { max-width:75ch; margin:20px 0 0; font-size:13px; color:var(--color-muted); }
+
+.project-work-grid .project-tools { margin-top:18px; padding-top:14px; border-top:1px solid var(--color-border); font-size:12px; line-height:1.8; }
+.project-tools strong { color:var(--color-text); font-weight:600; }
+.project-monitoring { grid-column:1 / -1; }
