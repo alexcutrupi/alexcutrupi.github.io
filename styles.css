@@ -230,3 +230,5 @@ p { margin:0 0 1rem; }
  .project-outcomes > div,.project-timeline li { grid-template-columns:minmax(0,1fr); gap:8px; }
 }
 @media(max-width:650px) { .nav-grid:has(> .nav-card:last-child:nth-child(6)) > .nav-card { grid-column:auto; } }
+
+.project-scope-note { max-width:75ch; margin:20px 0 0; font-size:13px; color:var(--color-muted); }
