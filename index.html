@@ -22,8 +22,9 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo">Alex Cutrupi</a>
-      <ul class="nav-links">
+      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
@@ -44,65 +45,61 @@
   <main id="main" tabindex="-1">
     <section class="hero container home-hero">
       <div class="hero-copy">
-      <p class="prompt">whoami</p>
-      <h1>Hi, I'm Alex<span class="accent">.</span></h1>
-      <p class="hero-subtitle">Student interested in electrical engineering, networking and IT infrastructure.</p>
-      <p class="hero-body">I build and experiment with networks, servers, automation, electronics and software — combining practical installation with computing and networking.</p>
-      <p class="tag-list">
-        <span class="tag">Electrical</span><span class="tag">Networking</span><span class="tag">IT Infrastructure</span><span class="tag">Automation</span>
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="skills.html">Explore my skills <span aria-hidden="true">&rarr;</span></a>
-        <a class="button" href="contact.html">Get in touch</a>
+        <p class="eyebrow">Student. Builder. Always curious.</p>
+        <h1>Making<br>connections<span class="accent">.</span></h1>
+        <p class="hero-subtitle">Hi, I'm Alex. I explore the space between electrical engineering, networks and software.</p>
+        <p class="hero-body">From the cables to the code, I like understanding how things work — and getting hands-on to make them work better.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="skills.html">Explore my skills <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="contact.html">Let's talk <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      </div>
-      <aside class="hero-profile" aria-label="My interests">
-      <img
-        class="avatar"
-        id="avatar"
-        data-gravatar-hash="7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba"
-        src="https://www.gravatar.com/avatar/7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba?s=224&d=mp"
-        alt="Alex Cutrupi"
-        width="112"
-        height="112"
-        fetchpriority="high"
-      >
-        <p class="profile-name">Alex Cutrupi</p>
-        <p class="profile-caption">Hands-on with hardware.<br>Curious about what makes it work.</p>
-        <div class="profile-topics"><span>01 / Electrical</span><span>02 / Networks</span><span>03 / Software</span></div>
+      <aside class="connection-panel" aria-label="My interests: electrical, networking and software">
+        <div class="panel-top"><span>THE THINGS THAT CONNECT</span><span aria-hidden="true">↗</span></div>
+        <svg class="connection-art" viewBox="0 0 400 330" fill="none" aria-hidden="true">
+          <defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="currentColor" opacity=".16"/></pattern></defs>
+          <rect width="400" height="330" fill="url(#grid)"/>
+          <g stroke="currentColor" stroke-width="1.5"><path d="M0 72h96l56 56h48M0 248h85l65-65h50M400 70h-75l-58 58h-67M400 250h-95l-67-67h-38M200 0v105M200 205v125"/><path d="M40 0v35l85 85v95l-65 65v50M360 0v30l-80 80v110l70 70v40" opacity=".3"/></g>
+          <g fill="var(--color-panel)"><circle cx="96" cy="72" r="5" stroke="currentColor"/><circle cx="85" cy="248" r="5" stroke="currentColor"/><circle cx="325" cy="70" r="5" stroke="currentColor"/><circle cx="305" cy="250" r="5" stroke="currentColor"/></g>
+          <rect x="150" y="105" width="100" height="100" rx="20" fill="var(--color-panel)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="200" y="170" text-anchor="middle" fill="currentColor" font-family="Arial, sans-serif" font-size="38" font-weight="700" letter-spacing="-3">AC</text>
+          <g fill="currentColor"><circle cx="200" cy="43" r="4"/><circle cx="200" cy="275" r="4"/></g>
+        </svg>
+        <div class="panel-bottom"><span>01 Electrical</span><span>02 Networks</span><span>03 Software</span></div>
       </aside>
     </section>
+    <div class="interest-strip container" aria-label="Areas of interest"><span>Electrical installation</span><span aria-hidden="true">✳</span><span>Networking &amp; infrastructure</span><span aria-hidden="true">✳</span><span>Code &amp; automation</span></div>
 
     <section class="section container">
-      <p class="eyebrow">explore</p>
-      <h2>A few things about me</h2>
+      <p class="eyebrow">01 / Explore</p>
+      <h2>A little more about me.</h2>
       <div class="nav-grid">
         <a class="nav-card" href="skills.html">
-          <h3>Skills <span aria-hidden="true">&rarr;</span></h3>
+          <span class="card-number">01</span><h3>Skills <span aria-hidden="true">&rarr;</span></h3>
           <p>Electrical knowledge, plus practical networking, lighting controls, servers and hardware.</p>
         </a>
         <a class="nav-card" href="education-career.html">
-          <h3>Education &amp; Career <span aria-hidden="true">&rarr;</span></h3>
+          <span class="card-number">02</span><h3>Education &amp; Career <span aria-hidden="true">&rarr;</span></h3>
           <p>Year 11 GCSEs, and a career direction across electrical and IT infrastructure.</p>
         </a>
         <a class="nav-card" href="places-visited.html">
-          <h3>Places Visited <span aria-hidden="true">&rarr;</span></h3>
+          <span class="card-number">03</span><h3>Places Visited <span aria-hidden="true">&rarr;</span></h3>
           <p>A little travel journal of places, trips and memories.</p>
         </a>
         <a class="nav-card" href="socials.html">
-          <h3>Socials <span aria-hidden="true">&rarr;</span></h3>
+          <span class="card-number">04</span><h3>Socials <span aria-hidden="true">&rarr;</span></h3>
           <p>Find me on Facebook and Instagram.</p>
         </a>
         <a class="nav-card" href="contact.html">
-          <h3>Contact <span aria-hidden="true">&rarr;</span></h3>
+          <span class="card-number">05</span><h3>Contact <span aria-hidden="true">&rarr;</span></h3>
           <p>Get in touch by email or find me on GitHub.</p>
         </a>
       </div>
     </section>
 
     <section id="about" class="section container">
-      <p class="eyebrow">about</p>
-      <h2>About</h2>
+      <p class="eyebrow">02 / Behind the connections</p>
+      <h2>Curiosity, put into practice.</h2>
       <p>I'm a Year 11 student with a strong interest in IT infrastructure, networking, web development, electrical installation and technology more broadly. My longer-term interest is electrical installation and an electrical apprenticeship, alongside substantial hands-on experience I've built up with computers, networking and servers.</p>
       <p>I like taking on projects that combine physical, hands-on work — cabling, hardware, electronics — with the software and networking side that makes them run.</p>
     </section>
