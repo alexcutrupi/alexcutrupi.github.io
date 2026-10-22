@@ -169,3 +169,7 @@ p { margin:0 0 1rem; }
 /* Two-profile pages use the full available row. */
 .nav-grid:has(> .nav-card:last-child:nth-child(2)) > .nav-card { grid-column:span 3; }
 @media(max-width:650px) { .nav-grid:has(> .nav-card:last-child:nth-child(2)) > .nav-card { grid-column:auto; } }
+
+/* Keep Alex’s photo at the centre of the homepage illustration. */
+.portrait-art { position:relative; }
+.hero-portrait { position:absolute; left:50%; top:47%; transform:translate(-50%,-50%); width:36%; aspect-ratio:1; height:auto; object-fit:cover; border-radius:50%; border:5px solid var(--color-panel); outline:1px solid var(--color-accent); background:var(--color-panel); }
