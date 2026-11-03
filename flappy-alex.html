@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Flappy Alex — Secret Game</title><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="styles.css">
+<style>
+.game-wrap{max-width:560px;margin:50px auto;padding:0 18px;text-align:center}.game-wrap h1{font-size:clamp(2rem,6vw,3.4rem);margin:12px 0}.game-wrap p{opacity:.8}.game-shell{position:relative;border:2px solid var(--color-border,#687586);border-radius:18px;overflow:hidden;background:#8bd6f3;touch-action:none;box-shadow:0 16px 45px #0002}canvas{display:block;width:100%;height:auto;aspect-ratio:360/540}.game-overlay{position:absolute;inset:0;display:grid;place-content:center;background:#102b45a8;color:white;padding:24px}.game-overlay[hidden]{display:none}.game-overlay h2{color:white;font-size:2rem;margin:0 0 8px}.game-overlay p{color:white;margin:0 0 20px}.game-overlay button{background:#fff;color:#102b45;border:0;border-radius:12px;padding:13px 28px;font-weight:800;cursor:pointer;font-size:1rem}.game-stats{display:flex;justify-content:space-between;gap:12px;margin:14px 0;font-weight:700}.game-back{display:inline-block;margin:20px 0}
+</style></head><body><main class="game-wrap"><p class="eyebrow">Secret unlocked / Alex Cutrupi</p><h1>Flappy <span class="accent">Alex.</span></h1><p>Fly through the gaps. Don't hit the pipes!</p><div class="game-stats"><span>Score: <output id="score">0</output></span><span>Best: <output id="best">0</output></span></div><div class="game-shell" id="shell"><canvas id="game" width="360" height="540" aria-label="Flappy Alex game"></canvas><div class="game-overlay" id="overlay"><h2 id="heading">Flappy Alex</h2><p id="message">Tap, click or press Space to flap.</p><button id="start" type="button">Start game</button></div></div><p>Tap the screen, click, or press Space / ↑ to fly.</p><a class="text-link game-back" href="index.html">← Back to portfolio</a></main>
+<script>
+(()=>{'use strict';
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),overlay=document.getElementById('overlay'),heading=document.getElementById('heading'),message=document.getElementById('message'),start=document.getElementById('start'),scoreEl=document.getElementById('score'),bestEl=document.getElementById('best');
+const W=360,H=540,ground=H-48,face=new Image();face.crossOrigin='anonymous';face.src='https://www.gravatar.com/avatar/7291030cd63b19b1c144e091982c1e3ec3c220fd57a21c6c3b3695e341fe00ba?s=448&d=mp';
+let best=0;try{best=Number(localStorage.getItem('flappyAlexBest'))||0}catch(e){}bestEl.textContent=best;
+let state='ready',bird={x:92,y:245,vy:0,r:19},pipes=[],score=0,frames=0,last=0,raf=0;
+function reset(){bird={x:92,y:245,vy:0,r:19};pipes=[];score=0;frames=0;scoreEl.textContent='0';state='playing';overlay.hidden=true;last=0;cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}
+function flap(){if(state==='playing')bird.vy=-5.65}
+function finish(){if(state!=='playing')return;state='over';heading.textContent='Game over!';message.textContent='You scored '+score+'. Give it another go!';start.textContent='Play again';overlay.hidden=false}
+function action(e){if(e)e.preventDefault();if(state!=='playing')reset();else flap()}
+start.addEventListener('click',e=>{e.stopPropagation();action(e)});canvas.addEventListener('pointerdown',action);
+document.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='ArrowUp'){if(e.repeat)return;action(e)}});
+function addPipe(){const gap=151,top=65+Math.random()*(ground-gap-125);pipes.push({x:W+30,top,gap,passed:false})}
+function update(dt){frames+=dt;if(frames>=88){frames-=88;addPipe()}bird.vy+=0.32*dt;bird.y+=bird.vy*dt;
+for(const p of pipes){p.x-=2.25*dt;if(!p.passed&&p.x+61<bird.x){p.passed=true;score++;scoreEl.textContent=score;if(score>best){best=score;bestEl.textContent=best;try{localStorage.setItem('flappyAlexBest',String(best))}catch(e){}}}
+if(bird.x+bird.r-5>p.x&&bird.x-bird.r+5<p.x+61&&(bird.y-bird.r+5<p.top||bird.y+bird.r-5>p.top+p.gap))finish()}
+pipes=pipes.filter(p=>p.x>-70);if(bird.y+bird.r>=ground||bird.y-bird.r<=0)finish()}
+function draw(){const sky=ctx.createLinearGradient(0,0,0,ground);sky.addColorStop(0,'#72c6f0');sky.addColorStop(1,'#d7f5ff');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+ctx.fillStyle='#ffffff88';for(let i=0;i<5;i++){let x=(i*112+32)%420-20,y=65+(i%3)*70;ctx.beginPath();ctx.ellipse(x,y,38,13,0,0,Math.PI*2);ctx.fill()}
+for(const p of pipes){ctx.fillStyle='#2c9e68';ctx.strokeStyle='#176843';ctx.lineWidth=3;ctx.fillRect(p.x,0,61,p.top);ctx.strokeRect(p.x,0,61,p.top);ctx.fillRect(p.x,p.top+p.gap,61,ground-p.top-p.gap);ctx.strokeRect(p.x,p.top+p.gap,61,ground-p.top-p.gap);ctx.fillStyle='#42c989';ctx.fillRect(p.x-5,p.top-22,71,22);ctx.fillRect(p.x-5,p.top+p.gap,71,22);ctx.strokeRect(p.x-5,p.top-22,71,22);ctx.strokeRect(p.x-5,p.top+p.gap,71,22)}
+ctx.fillStyle='#65bd69';ctx.fillRect(0,ground,W,8);ctx.fillStyle='#dfc68a';ctx.fillRect(0,ground+8,W,H-ground-8);
+ctx.save();ctx.translate(bird.x,bird.y);ctx.rotate(Math.max(-.35,Math.min(.9,bird.vy*.065)));ctx.beginPath();ctx.arc(0,0,bird.r,0,Math.PI*2);ctx.clip();if(face.complete&&face.naturalWidth){ctx.drawImage(face,-bird.r,-bird.r,bird.r*2,bird.r*2)}else{ctx.fillStyle='#f6c97b';ctx.fillRect(-bird.r,-bird.r,bird.r*2,bird.r*2);ctx.fillStyle='#172f45';ctx.font='bold 17px sans-serif';ctx.textAlign='center';ctx.fillText('AC',0,6)}ctx.restore();ctx.beginPath();ctx.arc(bird.x,bird.y,bird.r,0,Math.PI*2);ctx.lineWidth=3;ctx.strokeStyle='#fff';ctx.stroke()}
+function loop(t){if(state!=='playing')return;const dt=last?Math.min((t-last)/16.667,2):1;last=t;update(dt);draw();if(state==='playing')raf=requestAnimationFrame(loop)}
+draw();
+})();
+</script></body></html>
