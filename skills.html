@@ -18,11 +18,11 @@
   <link rel="canonical" href="https://alexcutrupi.com/skills.html">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 </head>
-<body>
+<body class="photo-backdrop">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <a href="index.html" class="brand">Alex Cutrupi</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
         <li><a href="past-projects.html">Projects</a></li>
@@ -30,7 +30,7 @@
         <li><a href="skills.html" aria-current="page">Skills</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
         <li><a href="socials.html">Socials</a></li>
-        <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
         <span class="icon-sun" aria-hidden="true">☀</span>
@@ -39,17 +39,54 @@
     </nav>
   </header>
 
-  <main id="main" tabindex="-1">
-    <section class="section container skills-section" aria-labelledby="skills-title">
-      <header class="skills-intro">
-        <h1 id="skills-title">Skills &amp; knowledge</h1>
-        <p class="section-intro">I learn by getting hands-on, figuring things out and building projects at home. These are the areas I’ve been exploring over the past three years.</p>
-      </header>
+  <div class="backdrop-controls" role="group" aria-label="Backdrop controls" hidden>
+    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">Photos only</button>
+    <button class="backdrop-button backdrop-previous" type="button" aria-label="Previous backdrop" hidden>Previous</button>
+    <button class="backdrop-button backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
+      <span class="backdrop-toggle-label">Pause</span>
+      <span class="backdrop-progress" aria-hidden="true"></span>
+    </button>
+    <button class="backdrop-button backdrop-next" type="button" aria-label="Next backdrop" hidden>Next</button>
+    <span class="sr-only" id="backdrop-status" role="status"></span>
+  </div>
 
+  <main id="main" class="skills-page" tabindex="-1">
+    <header class="container skills-panel skills-intro">
+      <h1 id="skills-title">Skills &amp; knowledge</h1>
+      <p class="section-intro">I learn by getting hands-on, figuring things out and building projects at home. These are the areas I’ve been exploring over the past three years.</p>
+    </header>
+
+    <section class="container skills-panel" aria-labelledby="practical-skills-title">
+      <h2 id="practical-skills-title">Practical skills</h2>
+      <div class="expertise-grid">
+        <article class="expertise-card practical-card">
+          <h3>Plastering</h3>
+          <p>Working towards a smooth, even finish on walls.</p>
+          <ul class="practical-process" role="list">
+            <li>Surface preparation</li>
+            <li>Applying plaster</li>
+            <li>Smoothing and finishing</li>
+          </ul>
+        </article>
+
+        <article class="expertise-card practical-card practical-card-timber">
+          <h3>Woodworking</h3>
+          <p>Working with timber to make and assemble pieces.</p>
+          <ul class="practical-process" role="list">
+            <li>Measuring and marking</li>
+            <li>Cutting timber</li>
+            <li>Joining and assembly</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container skills-panel" aria-labelledby="electrical-skills-title">
+      <h2 id="electrical-skills-title">Electrical &amp; lighting</h2>
       <div class="expertise-grid">
         <article class="expertise-card">
           <p class="experience-label">Self-directed study</p>
-          <h2>Electrical systems</h2>
+          <h3>Electrical systems</h3>
           <p>Understanding how installations are arranged, protected and supplied.</p>
           <ul>
             <li>Single- and three-phase installation layouts</li>
@@ -59,8 +96,24 @@
         </article>
 
         <article class="expertise-card">
+          <p class="experience-label">Learning &amp; experimenting</p>
+          <h3>Lighting &amp; control</h3>
+          <p>Exploring how lighting fixtures are addressed, connected and programmed.</p>
+          <ul>
+            <li>Art-DMX universe setup</li>
+            <li>Learning fixture addressing with DMX and Art-Net</li>
+            <li>Learning show programming with QLC+</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container skills-panel" aria-labelledby="computing-skills-title">
+      <h2 id="computing-skills-title">Networking &amp; IT</h2>
+      <div class="expertise-grid">
+        <article class="expertise-card">
           <p class="experience-label">Hands-on experience</p>
-          <h2>Networks &amp; cabling</h2>
+          <h3>Networks &amp; cabling</h3>
           <p>Connecting devices, from the physical cabling to network configuration.</p>
           <ul>
             <li>Ethernet cable routing and termination</li>
@@ -71,7 +124,7 @@
 
         <article class="expertise-card">
           <p class="experience-label">Hands-on experience</p>
-          <h2>Linux &amp; servers</h2>
+          <h3>Linux &amp; servers</h3>
           <p>Setting up servers and working with the services that run on them.</p>
           <ul>
             <li>Linux server setup</li>
@@ -82,7 +135,7 @@
 
         <article class="expertise-card">
           <p class="experience-label">Hands-on experience</p>
-          <h2>Code &amp; automation</h2>
+          <h3>Code &amp; automation</h3>
           <p>Using software to connect systems and automate everyday tasks.</p>
           <ul>
             <li>Python and shell scripting</li>
@@ -92,19 +145,8 @@
         </article>
 
         <article class="expertise-card">
-          <p class="experience-label">Learning &amp; experimenting</p>
-          <h2>Lighting &amp; control</h2>
-          <p>Exploring how lighting fixtures are addressed, connected and programmed.</p>
-          <ul>
-            <li>Art-DMX universe setup</li>
-            <li>Learning fixture addressing with DMX and Art-Net</li>
-            <li>Learning show programming with QLC+</li>
-          </ul>
-        </article>
-
-        <article class="expertise-card">
           <p class="experience-label">Hands-on experience</p>
-          <h2>Computers &amp; hardware</h2>
+          <h3>Computers &amp; hardware</h3>
           <p>Working with the physical components that make a computer run.</p>
           <ul>
             <li>PC building</li>
@@ -113,15 +155,15 @@
           </ul>
         </article>
       </div>
-
-      <aside class="skills-direction" aria-labelledby="direction-title">
-        <div>
-          <h2 id="direction-title">Career direction</h2>
-          <p>I’m interested in a future in electrical installation, while continuing to build my networking and IT infrastructure experience.</p>
-        </div>
-        <a class="text-link" href="education-career.html">Education &amp; career</a>
-      </aside>
     </section>
+
+    <aside class="container skills-panel skills-direction" aria-labelledby="direction-title">
+      <div>
+        <h2 id="direction-title">Career direction</h2>
+        <p>I’m interested in a future in electrical installation, while continuing to build my networking and IT infrastructure experience.</p>
+      </div>
+      <a class="text-link" href="education-career.html">Education &amp; career</a>
+    </aside>
   </main>
 
   <nav class="page-nav container" aria-label="Page navigation">

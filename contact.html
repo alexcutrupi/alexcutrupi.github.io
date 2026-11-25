@@ -18,11 +18,11 @@
   <link rel="canonical" href="https://alexcutrupi.com/contact.html">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 </head>
-<body>
+<body class="photo-backdrop">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <a href="index.html" class="brand">Alex Cutrupi</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
         <li><a href="past-projects.html">Projects</a></li>
@@ -30,7 +30,7 @@
         <li><a href="skills.html">Skills</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
         <li><a href="socials.html">Socials</a></li>
-        <li><a href="contact.html" class="nav-contact" aria-current="page">Contact</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
         <span class="icon-sun" aria-hidden="true">☀</span>
@@ -38,6 +38,17 @@
       </button>
     </nav>
   </header>
+
+  <div class="backdrop-controls" role="group" aria-label="Backdrop controls" hidden>
+    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">Photos only</button>
+    <button class="backdrop-button backdrop-previous" type="button" aria-label="Previous backdrop" hidden>Previous</button>
+    <button class="backdrop-button backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
+      <span class="backdrop-toggle-label">Pause</span>
+      <span class="backdrop-progress" aria-hidden="true"></span>
+    </button>
+    <button class="backdrop-button backdrop-next" type="button" aria-label="Next backdrop" hidden>Next</button>
+    <span class="sr-only" id="backdrop-status" role="status"></span>
+  </div>
 
   <main id="main" tabindex="-1">
     <section class="section container contact-page">
