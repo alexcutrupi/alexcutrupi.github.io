@@ -46,9 +46,12 @@ if (menuToggle && menu) {
   menuToggle.addEventListener("click", () => {
     setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
   });
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMenuOpen(false);
+  });
   menu.addEventListener("keydown", closeMenuOnEscape);
   menuToggle.addEventListener("keydown", closeMenuOnEscape);
-  window.matchMedia("(max-width: 900px)").addEventListener("change", () => setMenuOpen(false));
+  window.matchMedia("(max-width: 960px)").addEventListener("change", () => setMenuOpen(false));
 }
 
 function closeMenuOnEscape(event) {

@@ -5,6 +5,7 @@ Personal portfolio of Alex Cutrupi, covering electrical installation, networking
 ## Main pages
 
 - [Home](https://alexcutrupi.com/)
+- [Experience](https://alexcutrupi.com/#experience)
 - [Projects](https://alexcutrupi.com/past-projects.html)
 - [Skills](https://alexcutrupi.com/skills.html)
 - [Education and Career](https://alexcutrupi.com/education-career.html)
