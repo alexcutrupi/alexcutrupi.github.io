@@ -22,51 +22,57 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="past-projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="past-projects.html">Past Projects</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
         <li><a href="socials.html">Socials</a></li>
-        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
-        <li>
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="icon-light">&#9728;</span>
-            <span class="icon-dark">&#9789;</span>
-          </button>
-        </li>
+        <li><a href="contact.html" class="nav-contact" aria-current="page">Contact</a></li>
       </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </nav>
   </header>
 
-
   <main id="main" tabindex="-1">
-    <section class="section container">
-      <p class="eyebrow">contact</p>
-      <h1>Contact</h1>
+    <section class="section container contact-page">
+      <h1>Get in touch</h1>
       <p class="section-intro">Have a project to talk about, or just want to say hello?</p>
-      <p>Reach out at <a href="mailto:me@alexcutrupi.com">me@alexcutrupi.com</a> or find me here:</p>
-      <ul class="social-links">
-        <li><a href="https://github.com/alexcutrupi" target="_blank" rel="noopener">GitHub</a></li>
-      </ul>
+      <div class="contact-panel">
+        <h2>Email</h2>
+        <a class="contact-email" href="mailto:me@alexcutrupi.com">me@alexcutrupi.com</a>
+        <div class="contact-links">
+          <a class="button button-dark" href="mailto:me@alexcutrupi.com">Send an email</a>
+          <a class="text-link" href="https://github.com/alexcutrupi">Find me on GitHub</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <nav class="page-nav container" aria-label="Page navigation">
     <a class="page-nav-link page-nav-prev" href="socials.html">
-      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-label">Previous page</span>
       <span class="page-nav-title">Socials</span>
     </a>
     <a class="page-nav-link page-nav-next" href="index.html">
-      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-label">Next page</span>
       <span class="page-nav-title">Home</span>
     </a>
   </nav>
 
   <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Alex Cutrupi</p>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/alexcutrupi">GitHub</a>
+        <a href="socials.html">Socials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>

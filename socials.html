@@ -22,44 +22,39 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="past-projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="past-projects.html">Past Projects</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
-        <li><a href="socials.html" class="active" aria-current="page">Socials</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li>
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="icon-light">&#9728;</span>
-            <span class="icon-dark">&#9789;</span>
-          </button>
-        </li>
+        <li><a href="socials.html" aria-current="page">Socials</a></li>
+        <li><a href="contact.html" class="nav-contact">Contact</a></li>
       </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </nav>
   </header>
 
-
   <main id="main" tabindex="-1">
     <section class="section container">
-      <p class="eyebrow">socials</p>
       <h1>Socials</h1>
       <p class="section-intro">Find me on Facebook, Instagram and YouTube.</p>
       <div class="nav-grid">
         <a class="nav-card" href="https://www.facebook.com/alex.cutrupi.3/" target="_blank" rel="noopener noreferrer">
-          <h3>Facebook <span aria-hidden="true">&nearr;</span></h3>
+          <h2>Facebook</h2>
           <p>Alex Cutrupi</p>
           <span class="social-card-action">View profile <span class="sr-only">on Facebook (opens in a new tab)</span></span>
         </a>
         <a class="nav-card" href="https://www.instagram.com/cutrupi.alex/" target="_blank" rel="noopener noreferrer">
-          <h3>Instagram <span aria-hidden="true">&nearr;</span></h3>
+          <h2>Instagram</h2>
           <p>@cutrupi.alex</p>
           <span class="social-card-action">View profile <span class="sr-only">on Instagram (opens in a new tab)</span></span>
         </a>
         <a class="nav-card" href="https://www.youtube.com/@alexcutrupi" target="_blank" rel="noopener noreferrer">
-          <h3>YouTube <span aria-hidden="true">&nearr;</span></h3>
+          <h2>YouTube</h2>
           <p>@alexcutrupi</p>
           <span class="social-card-action">View channel <span class="sr-only">on YouTube (opens in a new tab)</span></span>
         </a>
@@ -69,17 +64,24 @@
 
   <nav class="page-nav container" aria-label="Page navigation">
     <a class="page-nav-link page-nav-prev" href="education-career.html">
-      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-label">Previous page</span>
       <span class="page-nav-title">Education &amp; Career</span>
     </a>
     <a class="page-nav-link page-nav-next" href="contact.html">
-      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-label">Next page</span>
       <span class="page-nav-title">Contact</span>
     </a>
   </nav>
 
   <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Alex Cutrupi</p>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/alexcutrupi">GitHub</a>
+        <a href="socials.html">Socials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>

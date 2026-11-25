@@ -22,36 +22,31 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="past-projects.html" aria-current="page">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="past-projects.html" class="active" aria-current="page">Past Projects</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
         <li><a href="socials.html">Socials</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li>
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="icon-light">&#9728;</span>
-            <span class="icon-dark">&#9789;</span>
-          </button>
-        </li>
+        <li><a href="contact.html" class="nav-contact">Contact</a></li>
       </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </nav>
   </header>
 
-
   <main id="main" tabindex="-1">
     <section class="section container projects-page" aria-labelledby="projects-title">
-      <p class="eyebrow">From idea to infrastructure</p>
-      <h1 id="projects-title">Past projects<span class="accent">.</span></h1>
-      <p class="section-intro">A closer look at the systems I’ve built, the problems I’ve worked through and what I learned along the way.</p>
+      <h1 id="projects-title">Projects</h1>
+      <p class="section-intro">How I set up the servers, network and website for a hosting platform.</p>
 
       <article class="project-study" aria-labelledby="blasthost-title">
         <header class="project-overview">
           <div>
-            <p class="eyebrow">01 / Hosting &amp; IT infrastructure</p>
+            <p class="eyebrow">Hosting &amp; IT infrastructure</p>
             <h2 id="blasthost-title">BlastHost</h2>
             <p>A hosting project associated with InstantBay, developed to support services such as Minecraft server hosting.</p>
             <p>I worked on the servers, networking and website, gaining practical experience in building and connecting the different parts of a hosting platform.</p>
@@ -64,7 +59,7 @@
         </header>
 
         <section class="project-chapter" aria-labelledby="contribution-title">
-          <div class="chapter-heading"><p class="eyebrow">My contribution</p><h3 id="contribution-title">What I did</h3></div>
+          <div class="chapter-heading"><h3 id="contribution-title">What I did</h3></div>
           <div class="project-work-grid">
             <section><h4>Linux server administration</h4><p>Configured a physical Debian server and worked with Ubuntu and virtual private servers. Installed services, managed permissions and investigated service startup and access problems.</p><p class="project-tools"><strong>Tools used:</strong> Debian, Ubuntu, Linux</p></section>
             <section><h4>Game hosting &amp; control panel</h4><p>Worked with Pterodactyl to manage game server infrastructure. Explored its Laravel-based application and frontend to customise the panel’s appearance and server layout for BlastHost.</p><p class="project-tools"><strong>Tools used:</strong> Pterodactyl, Laravel</p></section>
@@ -77,7 +72,7 @@
         </section>
 
         <section class="project-chapter" aria-labelledby="achievements-title">
-          <div class="chapter-heading"><p class="eyebrow">Practical outcomes</p><h3 id="achievements-title">What I achieved</h3></div>
+          <div class="chapter-heading"><h3 id="achievements-title">What I achieved</h3></div>
           <dl class="project-outcomes">
             <div><dt>Website build</dt><dd>Produced a successful production build of the website after resolving deployment and configuration issues.</dd></div>
             <div><dt>VPN connection</dt><dd>Established and tested an OpenVPN connection from my Mac to the server.</dd></div>
@@ -87,7 +82,7 @@
         </section>
 
         <section class="project-chapter project-reflection" aria-labelledby="learning-title">
-          <div class="chapter-heading"><p class="eyebrow">Skills developed</p><h3 id="learning-title">Learning through practical work</h3></div>
+          <div class="chapter-heading"><h3 id="learning-title">Learning through practical work</h3></div>
           <p>This project strengthened my Linux administration, networking and web development skills. I learned to investigate faults methodically, use logs to identify problems and test changes across connected systems.</p>
           <p>It also developed my ability to learn independently and persist through unfamiliar technical problems — experience I want to build on through further study and practical work.</p>
           <p class="tag-list"><span class="tag">Linux administration</span><span class="tag">Networking</span><span class="tag">Web development</span><span class="tag">Problem-solving</span><span class="tag">Independent learning</span></p>
@@ -98,17 +93,24 @@
 
   <nav class="page-nav container" aria-label="Page navigation">
     <a class="page-nav-link page-nav-prev" href="skills.html">
-      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-label">Previous page</span>
       <span class="page-nav-title">Skills</span>
     </a>
     <a class="page-nav-link page-nav-next" href="education-career.html">
-      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-label">Next page</span>
       <span class="page-nav-title">Education &amp; Career</span>
     </a>
   </nav>
 
   <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Alex Cutrupi</p>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/alexcutrupi">GitHub</a>
+        <a href="socials.html">Socials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>

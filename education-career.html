@@ -22,42 +22,37 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true">ac<span>.</span></span> Alex Cutrupi</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu <span aria-hidden="true">＋</span></button>
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AC</span><span>Alex Cutrupi</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" hidden>Menu</button>
       <ul class="nav-links" id="main-menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="past-projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="past-projects.html">Past Projects</a></li>
-        <li><a href="education-career.html" class="active" aria-current="page">Education &amp; Career</a></li>
+        <li><a href="education-career.html" aria-current="page">Education &amp; Career</a></li>
         <li><a href="socials.html">Socials</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li>
-          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="icon-light">&#9728;</span>
-            <span class="icon-dark">&#9789;</span>
-          </button>
-        </li>
+        <li><a href="contact.html" class="nav-contact">Contact</a></li>
       </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
+        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="icon-moon" aria-hidden="true">☾</span>
+      </button>
     </nav>
   </header>
 
-
   <main id="main" tabindex="-1">
     <section class="section container">
-      <p class="eyebrow">education &amp; career</p>
-      <h1>Education &amp; Career</h1>
-      <div class="two-col-grid">
+      <h1>Education &amp; career</h1>
+      <div class="two-col-grid education-grid">
         <div id="education">
           <h2>Education</h2>
           <div class="school-card">
-            <p class="school-label">currently attending</p>
+            <p class="school-label">Current school</p>
             <h3 class="school-name">St Peter's Catholic High School</h3>
             <p class="school-meta">Orrell, Wigan &middot; Year 11 &middot; Ages 11&ndash;16</p>
             <ul class="school-links">
-              <li><a href="https://saintpetershigh.wigan.sch.uk/" target="_blank" rel="noopener">Website <span aria-hidden="true">&nearr;</span></a></li>
-              <li><a href="https://www.facebook.com/StPetersOrrell" target="_blank" rel="noopener">Facebook <span aria-hidden="true">&nearr;</span></a></li>
-              <li><a href="https://instagram.com/stpetersorrell" target="_blank" rel="noopener">Instagram <span aria-hidden="true">&nearr;</span></a></li>
-              <li><a href="https://www.youtube.com/channel/UCp-Cp2rnWEaGvKFMqKMVJbA" target="_blank" rel="noopener">YouTube <span aria-hidden="true">&nearr;</span></a></li>
+              <li><a href="https://saintpetershigh.wigan.sch.uk/" target="_blank" rel="noopener">Website</a></li>
+              <li><a href="https://www.facebook.com/StPetersOrrell" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://instagram.com/stpetersorrell" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.youtube.com/channel/UCp-Cp2rnWEaGvKFMqKMVJbA" target="_blank" rel="noopener">YouTube</a></li>
             </ul>
           </div>
           <p>Studying towards GCSEs in:</p>
@@ -77,17 +72,24 @@
 
   <nav class="page-nav container" aria-label="Page navigation">
     <a class="page-nav-link page-nav-prev" href="past-projects.html">
-      <span class="page-nav-label">&larr; prev</span>
+      <span class="page-nav-label">Previous page</span>
       <span class="page-nav-title">Past Projects</span>
     </a>
     <a class="page-nav-link page-nav-next" href="socials.html">
-      <span class="page-nav-label">next &rarr;</span>
+      <span class="page-nav-label">Next page</span>
       <span class="page-nav-title">Socials</span>
     </a>
   </nav>
 
   <footer class="site-footer">
-    <p class="container">&copy; <span id="year"></span> Alex Cutrupi</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Alex Cutrupi</p>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/alexcutrupi">GitHub</a>
+        <a href="socials.html">Socials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
   <script src="script.js"></script>
