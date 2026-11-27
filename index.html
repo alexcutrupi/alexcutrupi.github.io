@@ -7,6 +7,8 @@
   <meta name="description" content="Explore Alex Cutrupi’s portfolio of electrical installation interests, Linux server and networking projects, and travel photography across England and Wales.">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="assets/photo-blends/mobile-48.webp" media="(max-width: 800px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/photo-blends/desktop-48.webp" media="(min-width: 800.02px)" fetchpriority="high">
   <script>
     (function () {
       var saved;
@@ -135,7 +137,7 @@
             <li class="tag">Next.js</li>
             <li class="tag">WireGuard</li>
           </ul>
-          <a class="button button-primary" href="past-projects.html#blasthost-title">Read the case study</a>
+          <a class="button button-primary" href="past-projects.html#blasthost">Read the case study</a>
         </div>
         <img class="featured-image" draggable="false" src="assets/server-rack.webp" alt="" width="960" height="541" loading="lazy">
       </article>
@@ -157,7 +159,7 @@
         <article class="experience-entry">
           <p class="experience-label">Jul 2025 – Jan 2026</p>
           <div>
-            <h3>BlastHost</h3>
+            <h3><a href="past-projects.html#blasthost" class="text-link">BlastHost</a></h3>
             <p>Hosting infrastructure project</p>
           </div>
           <p>Configured a physical Debian server, deployed a Next.js website with Nginx and systemd, and established and tested an OpenVPN connection.</p>

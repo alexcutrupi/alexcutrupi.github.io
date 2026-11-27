@@ -249,6 +249,37 @@ async function showBackdrop(scene, tone, animate) {
   body.style.removeProperty("--backdrop-incoming-mobile");
 }
 
+const warmedBackdrops = new Set();
+
+// Fetch the upcoming backdrop during the countdown so the crossfade starts on time.
+function warmBackdrop(scene) {
+  const src = backdropDirectory + (smallBackdrop.matches ? "mobile-" : "desktop-") +
+    String(scene).padStart(2, "0") + ".webp";
+  if (warmedBackdrops.has(src)) return;
+  warmedBackdrops.add(src);
+  const image = new Image();
+  image.decoding = "async";
+  image.src = src;
+}
+
+async function countBackdrops() {
+  const exists = scene => new Promise(resolve => {
+    const image = new Image();
+    image.onload = () => resolve(true);
+    image.onerror = () => resolve(false);
+    image.src = backdropDirectory + "mobile-" + String(scene).padStart(2, "0") + ".webp";
+  });
+  // Double up to find a missing scene, then binary-search for the last one present.
+  let low = 1;
+  let high = 2;
+  while (high <= 512 && await exists(high)) { low = high; high *= 2; }
+  while (high - low > 1) {
+    const middle = Math.floor((low + high) / 2);
+    if (await exists(middle)) low = middle; else high = middle;
+  }
+  return low;
+}
+
 function shuffleBackdrops(count, openingScene) {
   const remaining = Array.from({ length: count }, (_, index) => index + 1)
     .filter(scene => scene !== openingScene);
@@ -262,9 +293,16 @@ function shuffleBackdrops(count, openingScene) {
 }
 
 async function enableBackdrops() {
-  const response = await fetch(backdropDirectory + "scenes.json");
-  if (!response.ok) return;
-  const { count, colors } = await response.json();
+  let scenes;
+  try {
+    const response = await fetch(backdropDirectory + "scenes.json");
+    if (response.ok) scenes = await response.json();
+  } catch {
+    // Browsers block fetch for pages opened straight from disk (file://).
+  }
+  // Without the scene list, work out how many backdrops exist by probing the files.
+  scenes ??= { count: await countBackdrops() };
+  const { count, colors } = scenes;
   if (!Number.isInteger(count) || count < 2) return;
   const toneFor = scene => {
     const color = Array.isArray(colors) ? colors[scene - 1] : null;
@@ -320,6 +358,7 @@ async function enableBackdrops() {
         );
       }
       timer = window.setTimeout(() => advance(1, false), backdropInterval);
+      warmBackdrop(order[(position + 1) % count]);
     }
   }
 

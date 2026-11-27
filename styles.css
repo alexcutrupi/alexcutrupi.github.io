@@ -24,6 +24,9 @@
   --backdrop-focus: #3e520a;
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --panel-radius: .95rem;
+  --card-radius: .65rem;
+  --control-radius: .55rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -171,6 +174,7 @@ p + p { margin-top: .85em; }
   min-height: 48px;
   padding: .65rem 1.15rem;
   border: 1px solid transparent;
+  border-radius: var(--control-radius);
   font-weight: 700;
   text-align: center;
   text-decoration: none;
@@ -201,7 +205,7 @@ p + p { margin-top: .85em; }
 .featured-copy .button { margin-top: 1.4rem; }
 .featured-image { width: 100%; height: 100%; min-height: 100%; object-fit: cover; }
 .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: .9rem 0 0; padding: 0; list-style: none; }
-.tag { display: inline-block; padding: .25rem .6rem; border: 1px solid var(--line); font-size: .875rem; }
+.tag { display: inline-block; padding: .25rem .7rem; border: 1px solid var(--line); border-radius: 999px; font-size: .875rem; }
 .featured-copy .tag { color: var(--feature-text); border-color: #586354; }
 
 .home-experience { border-top: 1px solid var(--line); }
@@ -245,7 +249,14 @@ p + p { margin-top: .85em; }
 .expertise-card, .school-card, .nav-card, .project-work-grid > section, .project-outcomes > div {
   padding: clamp(1.2rem, 3.15vw, 2.1rem);
   border: 1px solid var(--line);
+  border-radius: var(--card-radius);
   background: var(--surface);
+}
+.project-overview, .contact-panel, .page-nav-link { border-radius: var(--card-radius); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-card, .page-nav-link { transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
+  .nav-card:hover, .page-nav-link:hover { transform: translateY(-2px); }
 }
 .expertise-card .experience-label { margin-bottom: .55rem; color: var(--muted); }
 .expertise-card h3, .education-grid h2 { font-size: clamp(1.5rem, 3vw, 2.35rem); }
@@ -277,6 +288,7 @@ p + p { margin-top: .85em; }
 .chapter-heading h3 { font-size: clamp(1.75rem, 3.4vw, 2.85rem); }
 .project-work-grid p { margin-top: .6rem; color: var(--muted); }
 .project-work-grid .project-tools { font-size: .9375rem; }
+.project-work-grid > section:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-outcomes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .project-outcomes dt { font-weight: 700; }
 .project-outcomes dd { margin: .45rem 0 0; color: var(--muted); }
@@ -563,6 +575,19 @@ p + p { margin-top: .85em; }
   background-color: var(--backdrop-sheet);
 }
 
+.photo-backdrop main > .container:not(.home-hero),
+.photo-backdrop .page-nav {
+  border: 1px solid var(--line);
+  border-radius: var(--panel-radius);
+}
+
+/* Frost the photo behind content panels so text never sits on busy detail. */
+.photo-backdrop :is(main > .container:not(.home-hero), .page-nav, .hero-copy, .story > .section, .home-contact) {
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  box-shadow: inset 0 1px #ffffff40, 0 .5rem 2rem #0b120d26;
+}
+
 .photo-backdrop .skills-page {
   row-gap: clamp(2rem, 6svh, 4.25rem);
   padding-block: clamp(2.1rem, 6svh, 4.5rem) var(--backdrop-gap);
@@ -783,7 +808,11 @@ p + p { margin-top: .85em; }
     --backdrop-contact: var(--lime);
   }
   .photo-backdrop .site-header .nav,
-  .backdrop-controls { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .backdrop-controls,
+  .photo-backdrop :is(main > .container:not(.home-hero), .page-nav, .hero-copy, .story > .section, .home-contact) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
   .photo-backdrop .site-header .nav.has-pointer-light,
   .backdrop-controls.has-pointer-light { background-image: none; }
   .backdrop-controls { background-color: #18201c; }
