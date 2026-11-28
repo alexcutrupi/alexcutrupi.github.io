@@ -1131,7 +1131,6 @@ html.intro .backdrop-qualities { opacity: 0 !important; }
 @keyframes intro-veil-out { to { opacity: 0; } }
 @keyframes intro-bar-top-out { to { transform: translateY(-100%); } }
 @keyframes intro-bar-bottom-out { to { transform: translateY(100%); } }
-@media (prefers-reduced-motion: reduce) { .opening-titles { display: none !important; } }
 
 /* About me on the home page. */
 .home-about-me p { max-width: 66ch; margin-top: .65rem; color: var(--muted); font-size: .98rem; line-height: 1.6; }
@@ -1861,3 +1860,58 @@ body.photo-backdrop .footer-inner a:hover { color: #fff; text-decoration-color: 
 
 /* With the pill showing the current page, links no longer need an underline. */
 body.has-nav-pill .nav-links a:is(:hover, [aria-current="page"]) { text-decoration: none; }
+
+/* Phone tab bar: a glass bar along the bottom with icon tabs, replacing the Menu button. The controls
+   bar, back-to-top button and messages sit just above it, and the page leaves room for it. */
+.tab-bar { display: none; }
+@media (max-width: 700px) {
+  html.has-tab-bar { --tab-bar-height: calc(3.6rem + env(safe-area-inset-bottom, 0px)); }
+  html.has-tab-bar .menu-toggle,
+  html.has-tab-bar .site-header .nav-links { display: none !important; }
+  html.has-tab-bar .tab-bar {
+    position: fixed;
+    z-index: 9;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: var(--tab-bar-height);
+    padding: .3rem .35rem env(safe-area-inset-bottom, 0px);
+    border-top: 1px solid rgb(255 255 255 / .2);
+    background: rgb(14 18 15 / .62);
+    -webkit-backdrop-filter: blur(24px) saturate(1.7);
+    backdrop-filter: blur(24px) saturate(1.7);
+    box-shadow: inset 0 1px rgb(255 255 255 / .14), 0 -.5rem 1.5rem rgb(0 0 0 / .25);
+  }
+  .tab-bar a {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: .2rem;
+    margin: .1rem .15rem;
+    border-radius: .9rem;
+    color: rgb(255 255 255 / .62);
+    font-size: .68rem;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tab-bar svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tab-bar a[aria-current="page"] {
+    color: var(--lime);
+    background: rgb(255 255 255 / .09);
+    box-shadow: inset 0 1px rgb(255 255 255 / .14);
+  }
+  .tab-bar a:active { transform: scale(.94); }
+  /* Everything else that sits at the bottom moves up above the bar. */
+  html.has-tab-bar .backdrop-controls { bottom: calc(var(--tab-bar-height) + .55rem); }
+  html.has-tab-bar .back-to-top { bottom: calc(var(--tab-bar-height) + 4.1rem); }
+  html.has-tab-bar .toast { bottom: calc(var(--tab-bar-height) + 4.3rem); }
+  html.has-tab-bar .photo-backdrop .site-footer,
+  html.has-tab-bar body.photo-backdrop:has(.backdrop-controls:not([hidden])) .site-footer {
+    padding-bottom: calc(var(--tab-bar-height) + 4.6rem);
+  }
+  html.intro .tab-bar, .is-photos-only .tab-bar { display: none !important; }
+  html.has-tab-bar .search-button { margin-left: auto; }
+}

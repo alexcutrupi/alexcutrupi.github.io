@@ -306,6 +306,9 @@ function enableSectionReveal() {
   const siblingCounts = new Map();
   for (const element of document.querySelectorAll(revealTargets)) {
     if (linked && (element.contains(linked) || linked.contains(element))) continue;
+    // A panel much taller than the screen (the whole Projects page on a phone) would start its entrance
+    // shrunk and pushed below the screen, and never be seen arriving. Its cards still animate in.
+    if (element.offsetHeight > window.innerHeight * 1.5) continue;
     // Stagger siblings so groups of cards cascade instead of appearing together.
     const order = siblingCounts.get(element.parentElement) ?? 0;
     siblingCounts.set(element.parentElement, order + 1);
@@ -1898,4 +1901,26 @@ window.addEventListener("pageshow", () => {
       if (to !== null) glide(to); else anchor = window.scrollY;
     }, 220);
   }, { passive: true });
+})();
+
+// Phones: an app-style tab bar along the bottom (Home, Projects, Skills, Education, Contact) in place of
+// the Menu button. The current page's tab is highlighted.
+(() => {
+  if (!document.querySelector(".site-header .nav")) return;
+  const icon = paths => `<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
+  const tabs = [
+    ["index.html", "Home", icon('<path d="M3 11.5 12 4l9 7.5M5 10v10.5h14V10M10 20.5v-6h4v6"/>')],
+    ["past-projects.html", "Projects", icon('<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7M3 12.5h18"/>')],
+    ["skills.html", "Skills", icon('<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/>')],
+    ["education-career.html", "Education", icon('<path d="M2 9.5 12 4.5l10 5-10 5zM6 11.5v5c3.5 2.3 8.5 2.3 12 0v-5M22 9.5v6"/>')],
+    ["contact.html", "Contact", icon('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/>')],
+  ];
+  const here = location.pathname.split("/").pop() || "index.html";
+  const bar = document.createElement("nav");
+  bar.className = "tab-bar";
+  bar.setAttribute("aria-label", "Main navigation");
+  bar.innerHTML = tabs.map(([href, label, svg]) =>
+    `<a href="${href}"${href === here ? ' aria-current="page"' : ""}>${svg}<span>${label}</span></a>`).join("");
+  document.body.append(bar);
+  document.documentElement.classList.add("has-tab-bar");
 })();
