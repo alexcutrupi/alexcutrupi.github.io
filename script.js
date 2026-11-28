@@ -298,8 +298,14 @@ function enableSectionReveal() {
     }
   }, { rootMargin: "0px 0px -8% 0px" });
 
+  // Arriving at a #section link: leave whatever contains that section in place. Its entrance animation
+  // starts it shrunk and lowered, which throws off where the browser scrolls to.
+  let linked = null;
+  try { linked = location.hash && document.querySelector(decodeURIComponent(location.hash)); } catch {}
+
   const siblingCounts = new Map();
   for (const element of document.querySelectorAll(revealTargets)) {
+    if (linked && (element.contains(linked) || linked.contains(element))) continue;
     // Stagger siblings so groups of cards cascade instead of appearing together.
     const order = siblingCounts.get(element.parentElement) ?? 0;
     siblingCounts.set(element.parentElement, order + 1);
@@ -746,6 +752,7 @@ async function enableBackdrops() {
     stopCountdown();
     if (!playing || changing || document.hidden) return;
     if (document.documentElement.classList.contains("intro")) return; // Wait for the opening titles.
+    if (playingLive) return; // A Live Photo is playing on request: carry on once it ends.
     warmBackdrop(order[(position + 1) % order.length]);
     prepareUpcoming(order[(position + 1) % order.length]);
     if (motionPending()) return; // The countdown starts when the Live Photo has finished.
@@ -799,6 +806,66 @@ async function enableBackdrops() {
 
   backdropPrevious.addEventListener("click", () => advance(-1, true));
   backdropNext.addEventListener("click", () => advance(1, true));
+
+  // Press and hold the background (anywhere in Photos only) for a moment, or press L, and the current
+  // scene's Live Photo plays once through, then fades back to the still. The slideshow waits for it.
+  let playingLive = false;
+  // Which scenes have a Live Photo. Normally from scenes.json; when that can't be read (a page opened
+  // straight from disk), each scene's clip is checked once by loading just its header.
+  const hasLive = new Map();
+  function checkLive(scene) {
+    if (motionScenes) return Promise.resolve(motionScenes.has(scene));
+    if (hasLive.has(scene)) return hasLive.get(scene);
+    const probe = new Promise(resolve => {
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.muted = true;
+      const done = found => { resolve(found); video.removeAttribute("src"); video.load(); };
+      video.addEventListener("loadedmetadata", () => done(true), { once: true });
+      video.addEventListener("error", () => done(false), { once: true });
+      video.src = backdropDirectory + (smallBackdrop.matches ? "mobile-" : "desktop-") + String(scene).padStart(2, "0") + ".mp4";
+    });
+    hasLive.set(scene, probe);
+    return probe;
+  }
+  async function playLive() {
+    const scene = order[position];
+    if (playingLive || changing || !wantsMotion(scene)) return;
+    playingLive = true;
+    const finish = () => { playingLive = false; scheduleNext(); };
+    if (!(await checkLive(scene))) { playingLive = false; toast("This one isn\u2019t a Live Photo"); return; }
+    stopCountdown();
+    const video = await prepareMotion(scene);
+    if (!video) { finish(); return; }
+    if (motionVideo) motionVideo.after(video); else document.body.prepend(video);
+    syncDrift(video);
+    video.addEventListener("playing", () => { syncDrift(video); video.classList.add("is-playing"); }, { once: true });
+    video.addEventListener("ended", () => {
+      video.classList.remove("is-playing"); // Fades back to the still underneath.
+      window.setTimeout(() => releaseVideo(video), 1300);
+      finish();
+    }, { once: true });
+    video.play().catch(() => { releaseVideo(video); finish(); });
+  }
+  // A steady press on the background (not a tap or a swipe) starts it.
+  let press;
+  const backdropSurface = target => document.getElementById("main")?.hidden ||
+    !target.closest(".container, .site-header, .site-footer, .backdrop-controls, dialog, .section-dots, .back-to-top, .page-nav, a, button");
+  document.addEventListener("pointerdown", event => {
+    if (!event.isPrimary || event.button !== 0 || !backdropSurface(event.target)) return;
+    press = { x: event.clientX, y: event.clientY, timer: window.setTimeout(() => { press = null; playLive(); }, 350) };
+  });
+  document.addEventListener("pointermove", event => {
+    if (press && Math.hypot(event.clientX - press.x, event.clientY - press.y) > 12) { window.clearTimeout(press.timer); press = null; }
+  }, { passive: true });
+  for (const type of ["pointerup", "pointercancel"]) {
+    document.addEventListener(type, () => { if (press) { window.clearTimeout(press.timer); press = null; } });
+  }
+  document.addEventListener("keydown", event => {
+    if (event.key.toLowerCase() !== "l" || event.repeat || event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.target.closest?.("input, textarea, [contenteditable]") || document.querySelector("dialog[open]")) return;
+    playLive();
+  });
   backdropToggle.addEventListener("click", () => {
     setPlaying(!playing);
   });
@@ -1708,3 +1775,127 @@ function flashSearchResult() {
   if (introDone) introDone.then(() => window.setTimeout(run, 300)); else window.setTimeout(run, 350);
 }
 flashSearchResult();
+
+// Clicking a project card on the home page marks it, so the page transition can morph that card into
+// the project's header on the Projects page (see .is-morphing in styles.css). Only the clicked card is
+// marked, so the other two don't move.
+for (const card of document.querySelectorAll(".project-card")) {
+  card.addEventListener("click", event => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
+    document.querySelectorAll(".project-card.is-morphing").forEach(other => other.classList.remove("is-morphing"));
+    card.classList.add("is-morphing");
+  });
+}
+// Coming back to the home page, nothing should still be marked.
+window.addEventListener("pageshow", () => {
+  document.querySelectorAll(".project-card.is-morphing").forEach(card => card.classList.remove("is-morphing"));
+});
+
+// Navigation pill: sits behind the current page's link, follows the pointer across the links, and glides
+// back when the pointer leaves.
+(() => {
+  const list = document.querySelector(".nav-links");
+  if (!list || !window.matchMedia("(min-width: 961px)").matches) return;
+  const links = [...list.querySelectorAll("a")];
+  const current = list.querySelector('a[aria-current="page"]');
+  const pill = document.createElement("span");
+  pill.className = "nav-pill";
+  pill.setAttribute("aria-hidden", "true");
+  list.prepend(pill);
+  document.body.classList.add("has-nav-pill");
+  const moveTo = link => {
+    if (!link) { pill.style.opacity = "0"; return; }
+    const box = list.getBoundingClientRect(), r = link.getBoundingClientRect();
+    const pad = 12;
+    pill.style.setProperty("--pill-x", r.left - box.left - pad + "px");
+    pill.style.setProperty("--pill-w", r.width + pad * 2 + "px");
+    pill.style.opacity = "";
+  };
+  moveTo(current);
+  requestAnimationFrame(() => pill.classList.add("is-ready"));
+  links.forEach(link => {
+    link.addEventListener("pointerenter", () => moveTo(link));
+    link.addEventListener("focus", () => moveTo(link));
+  });
+  list.addEventListener("pointerleave", () => moveTo(current));
+  list.addEventListener("focusout", event => { if (!list.contains(event.relatedTarget)) moveTo(current); });
+  window.addEventListener("resize", () => moveTo(current));
+  document.fonts?.ready.then(() => moveTo(current));
+})();
+
+// Home page: a gentle snap. Scrolling is completely free; once it stops, the nearest section eases slowly
+// into the middle of the screen. Scrolling again lets go at once. A section taller than the screen that
+// you've stopped inside is left alone, and nothing moves for people who prefer reduced motion.
+(() => {
+  const story = document.querySelector("main.story");
+  if (!story || reducedMotion.matches) return;
+  const sections = [...story.querySelectorAll(":scope > .story-panel")];
+  const top = 80, bottom = 72; // Keep clear of the navigation bar and the controls bar.
+  let animating = false, frame = 0, settle = 0;
+
+  // A section's position in the page layout, ignoring transforms (sections slide and scale in as they
+  // arrive, which would otherwise move the target while it's being worked out).
+  const layoutTop = element => {
+    let y = 0;
+    for (let node = element; node; node = node.offsetParent) y += node.offsetTop;
+    return y;
+  };
+  // Where each section sits when settled: the title at the very top, the rest centred on screen.
+  function targets() {
+    const area = window.innerHeight - top - bottom;
+    const middle = top + area / 2;
+    return sections.map(section => {
+      const y = layoutTop(section), h = section.offsetHeight;
+      const at = section.classList.contains("home-hero") ? 0 : y + h / 2 - middle;
+      const viewTop = y - window.scrollY;
+      return { at, inside: h > area && viewTop < top && viewTop + h > window.innerHeight - bottom };
+    });
+  }
+  // Follow the direction of the scroll: even a short scroll down carries on to the next section down (and
+  // up to the one above); a tiny nudge eases back to where it was.
+  let anchor = window.scrollY;
+  function target() {
+    const list = targets();
+    if (list.some(item => item.inside)) return null; // Stopped inside a tall section: leave it.
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const now = window.scrollY, moved = now - anchor;
+    let pool = list;
+    if (Math.abs(moved) >= 30) {
+      const ahead = list.filter(item => moved > 0 ? item.at > anchor + 10 : item.at < anchor - 10);
+      if (ahead.length) pool = ahead;
+    }
+    const best = pool.reduce((a, b) => Math.abs(b.at - now) < Math.abs(a.at - now) ? b : a);
+    const to = Math.max(0, Math.min(max, best.at));
+    return Math.abs(to - now) < 6 ? null : to;
+  }
+
+  function glide(to) {
+    const from = window.scrollY;
+    if (Math.abs(to - from) < 6) return;
+    const duration = Math.min(1100, 500 + Math.abs(to - from) * .9); // Slow and soft, longer for longer moves.
+    const start = performance.now();
+    animating = true;
+    const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = now => {
+      if (!animating) return;
+      const t = Math.min(1, (now - start) / duration);
+      window.scrollTo({ top: from + (to - from) * ease(t), behavior: "instant" });
+      if (t < 1) frame = requestAnimationFrame(step);
+      else { animating = false; frame = 0; anchor = to; }
+    };
+    frame = requestAnimationFrame(step);
+  }
+
+  const letGo = () => { if (animating) { animating = false; cancelAnimationFrame(frame); } };
+  for (const type of ["wheel", "touchstart", "pointerdown", "keydown"]) window.addEventListener(type, letGo, { passive: true });
+
+  // Wait for scrolling (including momentum on trackpads and phones) to stop, then settle.
+  window.addEventListener("scroll", () => {
+    if (animating || document.documentElement.classList.contains("intro") || document.getElementById("main")?.hidden) return;
+    window.clearTimeout(settle);
+    settle = window.setTimeout(() => {
+      const to = target();
+      if (to !== null) glide(to); else anchor = window.scrollY;
+    }, 220);
+  }, { passive: true });
+})();
