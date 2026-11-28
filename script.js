@@ -79,10 +79,10 @@ function playIntro() {
   // What I do, how I think and work, and where I want to take it.
   const skills = [
     "Building things", "Thinking logically", "Electrical installation", "Solving problems",
-    "Networking", "Starting businesses", "Linux servers", "Planning ahead", "Structured cabling",
-    "Building brands", "Lighting control", "Attention to detail", "Thinking in systems", "Growing ideas",
-    "Troubleshooting", "Taking initiative", "Automation", "Creating from scratch", "Web development",
-    "Never giving up", "Growing businesses", "Taking over",
+    "Networking", "Starting businesses", "Linux servers", "Working with AI", "Planning ahead",
+    "Structured cabling", "Building brands", "Lighting control", "Attention to detail", "Thinking in systems",
+    "Growing ideas", "Troubleshooting", "Taking initiative", "AI automations", "Creating from scratch",
+    "Web development", "MCP integrations", "Never giving up", "Growing businesses", "Taking over",
   ];
   const skill = intro.querySelector(".intro-skill");
   const timers = [];
