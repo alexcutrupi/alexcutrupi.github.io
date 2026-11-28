@@ -4,17 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pistopass &amp; BlastHost Projects | Alex Cutrupi</title>
-  <meta name="description" content="Explore Pistopass, Alex Cutrupi’s loyalty card project for businesses, and BlastHost, his case study in Linux hosting and networking.">
+  <meta name="description" content="Explore Pistopass, Alex Cutrupi’s loyalty card project for businesses, BlastHost, his case study in Linux hosting and networking, and his hands-on home network build.">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preload" as="image" href="assets/photo-blends/mobile-48.webp" media="(max-width: 800px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/photo-blends/desktop-48.webp" media="(min-width: 800.02px)" fetchpriority="high">
   <script>
+    // Backdrop photo size: the full-quality originals on screens with the pixels to show them (Retina,
+    // 4K, larger phones), the standard ones elsewhere, where they look identical. Chosen before first
+    // paint so only one size is ever downloaded.
     (function () {
-      var saved;
-      try { saved = localStorage.getItem("theme"); } catch (error) {}
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.setAttribute("data-theme", saved);
+      var wide = matchMedia("(min-width: 800.02px)").matches, dpr = window.devicePixelRatio || 1;
+      var full = wide ? Math.max(screen.width, screen.height) * dpr > 2600 : Math.min(screen.width, screen.height) * dpr > 1200;
+      if (full) document.documentElement.setAttribute("data-photo-size", "full");
+      var name = "52" + (full ? "-full" : "") + ".webp", dir = "assets/photo-blends/";
+      [["mobile-", "(max-width: 800px)"], ["desktop-", "(min-width: 800.02px)"]].forEach(function (size) {
+        var link = document.createElement("link");
+        link.rel = "preload"; link.as = "image"; link.href = dir + size[0] + name; link.media = size[1];
+        link.setAttribute("fetchpriority", "high");
+        document.head.appendChild(link);
+      });
+      if (full) {
+        var style = document.createElement("style");
+        style.textContent = ".photo-backdrop{--backdrop-desktop:url(\"" + dir + "desktop-" + name +
+          "\");--backdrop-mobile:url(\"" + dir + "mobile-" + name + "\")}";
+        document.head.appendChild(style);
       }
     })();
   </script>
@@ -25,7 +37,7 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://alexcutrupi.com/past-projects.html">
   <meta property="og:title" content="Pistopass &amp; BlastHost Projects | Alex Cutrupi">
-  <meta property="og:description" content="Explore Pistopass, Alex Cutrupi’s loyalty card project for businesses, and BlastHost, his case study in Linux hosting and networking.">
+  <meta property="og:description" content="Explore Pistopass, Alex Cutrupi’s loyalty card project for businesses, BlastHost, his case study in Linux hosting and networking, and his hands-on home network build.">
   <meta property="og:image" content="https://alexcutrupi.com/assets/blasthost-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="960">
@@ -34,6 +46,7 @@
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="photo-backdrop">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false"><symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3.5" width="18" height="7.5" rx="2"/><rect x="3" y="13" width="18" height="7.5" rx="2"/><path d="M7 7.25h.01M7 16.75h.01M11 7.25h6M11 16.75h6"/></symbol><symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5 10v10.5h14V10M10 20.5v-6h4v6"/></symbol></svg>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
@@ -43,35 +56,41 @@
         <li><a href="past-projects.html" aria-current="page">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
-        <li><a href="socials.html">Socials</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
-        <span class="icon-sun" aria-hidden="true">☀</span>
-        <span class="icon-moon" aria-hidden="true">☾</span>
-      </button>
     </nav>
   </header>
 
   <div class="backdrop-controls" role="group" aria-label="Backdrop controls" hidden>
-    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">Photos only</button>
-    <button class="backdrop-button backdrop-previous" type="button" aria-label="Previous backdrop" hidden>Previous</button>
-    <button class="backdrop-button backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
-      <span class="backdrop-toggle-label">Pause</span>
-      <span class="backdrop-progress" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8.5 8"/></svg>
+      <span class="backdrop-view-label">Photos only</span>
     </button>
-    <button class="backdrop-button backdrop-next" type="button" aria-label="Next backdrop" hidden>Next</button>
+    <span class="backdrop-divider" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-round backdrop-previous" type="button" aria-label="Previous backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
+      <span class="backdrop-progress" aria-hidden="true"></span>
+      <svg class="backdrop-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="6" width="3.4" height="12" rx="1"/><rect x="13.6" y="6" width="3.4" height="12" rx="1"/></svg>
+      <svg class="backdrop-icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.8v12.4l10-6.2z"/></svg>
+      <span class="backdrop-toggle-label sr-only">Pause</span>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-next" type="button" aria-label="Next backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>
+    </button>
     <span class="sr-only" id="backdrop-status" role="status"></span>
   </div>
 
   <main id="main" tabindex="-1">
     <section class="section container projects-page" aria-labelledby="projects-title">
       <h1 id="projects-title">Projects</h1>
-      <p class="section-intro">My work on customer loyalty cards and Linux hosting.</p>
+      <p class="section-intro">My work on customer loyalty cards, Linux hosting and hands-on building.</p>
 
       <article class="project-study" id="pistopass" aria-labelledby="pistopass-title">
         <header class="project-overview">
           <div>
+            <span class="glass-icon" aria-hidden="true"><svg><use href="#i-card"/></svg></span>
             <p class="eyebrow">Customer loyalty</p>
             <h2 id="pistopass-title">Pistopass</h2>
             <p>I’m building Pistopass to give businesses a simple way to run loyalty card programmes and reward customers for coming back.</p>
@@ -85,46 +104,71 @@
       <article class="project-study" id="blasthost" aria-labelledby="blasthost-title">
         <header class="project-overview">
           <div>
+            <span class="glass-icon" aria-hidden="true"><svg><use href="#i-server"/></svg></span>
             <p class="eyebrow">Hosting &amp; IT infrastructure</p>
             <h2 id="blasthost-title">BlastHost</h2>
-            <p>A hosting project associated with InstantBay, developed to support services such as Minecraft server hosting.</p>
-            <p>I worked on the servers, networking and website, gaining practical experience in building and connecting the different parts of a hosting platform.</p>
+            <p>A hosting platform linked to InstantBay for services such as Minecraft servers. I worked on the servers, networking and website.</p>
           </div>
           <dl class="project-facts">
             <div><dt>Period</dt><dd>July 2025 – January 2026</dd></div>
-            <div><dt>My contribution</dt><dd>Server administration, networking &amp; web development</dd></div>
-            <div><dt>Project type</dt><dd>Practical hosting and infrastructure development</dd></div>
+            <div><dt>Role</dt><dd>Servers, networking &amp; website</dd></div>
           </dl>
         </header>
 
         <section class="project-chapter" aria-labelledby="contribution-title">
           <div class="chapter-heading"><h3 id="contribution-title">What I did</h3></div>
           <div class="project-work-grid">
-            <section><h4>Linux server administration</h4><p>Configured a physical Debian server and worked with Ubuntu and virtual private servers. Installed services, managed permissions and investigated service startup and access problems.</p><p class="project-tools"><strong>Tools used:</strong> Debian, Ubuntu, Linux</p></section>
-            <section><h4>Game hosting &amp; control panel</h4><p>Worked with Pterodactyl to manage game server infrastructure. Explored its Laravel-based application and frontend to customise the panel’s appearance and server layout for BlastHost.</p><p class="project-tools"><strong>Tools used:</strong> Pterodactyl, Laravel</p></section>
-            <section><h4>Website development &amp; deployment</h4><p>Built a custom Next.js frontend using JavaScript and Node.js, with Tailwind-related styling tools and Turbopack. Deployed it on Linux using Nginx and systemd, resolving build and configuration problems.</p><p class="project-tools"><strong>Tools used:</strong> Next.js, JavaScript, Node.js, Tailwind tooling, Turbopack, Nginx, systemd</p></section>
-            <section><h4>Billing integration</h4><p>Worked on a WHMCS API integration to retrieve hosting packages for the website automatically. Configured API access and investigated IP restrictions; the full ordering and payment flow remained in development.</p><p class="project-tools"><strong>Tools used:</strong> WHMCS API</p></section>
-            <section><h4>Networking &amp; VPNs</h4><p>Established an OpenVPN connection and configured WireGuard between home-hosted infrastructure and a VPS. Also experimented with GRE tunnelling, routing, NAT and port forwarding.</p><p class="project-tools"><strong>Tools used:</strong> OpenVPN, WireGuard, GRE tunnels</p></section>
-            <section><h4>Email infrastructure</h4><p>Set up an independent email server with Postfix and Dovecot, backed by MariaDB. Got mailbox authentication working, configured TLS certificates and tested SMTP connections.</p><p class="project-tools"><strong>Tools used:</strong> Postfix, Dovecot, MariaDB, Let’s Encrypt, Swaks</p></section>
-            <section class="project-monitoring"><h4>Monitoring &amp; firewall configuration</h4><p>Installed and configured Netdata for server monitoring and investigated how to restrict access to its dashboard. Used UFW to configure firewall access for services and VPN connections.</p><p class="project-tools"><strong>Tools used:</strong> Netdata, UFW</p></section>
+            <section><h4>Linux servers</h4><p>Set up a physical Debian server and Ubuntu VPSs, installed services, managed permissions and troubleshot startup issues.</p><p class="project-tools"><strong>Tools:</strong> Debian, Ubuntu, UFW</p></section>
+            <section><h4>Game hosting panel</h4><p>Ran Pterodactyl for game servers and customised its Laravel-based panel for BlastHost.</p><p class="project-tools"><strong>Tools:</strong> Pterodactyl, Laravel</p></section>
+            <section><h4>Website</h4><p>Built the site in Next.js and deployed it on Linux behind Nginx, managed by systemd.</p><p class="project-tools"><strong>Tools:</strong> Next.js, Node.js, Nginx, systemd</p></section>
+            <section><h4>Networking &amp; email</h4><p>Linked home servers to a VPS with WireGuard, worked with routing, NAT and port forwarding, and set up a mail server with TLS.</p><p class="project-tools"><strong>Tools:</strong> WireGuard, OpenVPN, Postfix, Dovecot</p></section>
           </div>
+          <p class="tag-list"><span class="tag">Linux administration</span><span class="tag">Networking</span><span class="tag">Web development</span><span class="tag">Problem-solving</span></p>
         </section>
+      </article>
 
-        <section class="project-chapter" aria-labelledby="achievements-title">
-          <div class="chapter-heading"><h3 id="achievements-title">What I achieved</h3></div>
-          <dl class="project-outcomes">
-            <div><dt>Website build</dt><dd>Produced a successful production build of the website after resolving deployment and configuration issues.</dd></div>
-            <div><dt>VPN connection</dt><dd>Established and tested an OpenVPN connection from my Mac to the server.</dd></div>
-            <div><dt>Email authentication</dt><dd>Resolved database authentication problems so the mail server could authenticate a mailbox account.</dd></div>
+      <article class="project-study" id="hands-on" aria-labelledby="hands-on-title">
+        <header class="project-overview">
+          <div>
+            <span class="glass-icon" aria-hidden="true"><svg><use href="#i-home"/></svg></span>
+            <p class="eyebrow">Hands-on building</p>
+            <h2 id="hands-on-title">Home network &amp; room build</h2>
+            <p>Practical building and wiring work at home: framing and boarding walls, running power and network cabling, wiring lights, and setting up a rack, patch panel and Wi-Fi.</p>
+          </div>
+          <dl class="project-facts">
+            <div><dt>Period</dt><dd><time datetime="2024-04">April 2024</time> – Present</dd></div>
           </dl>
-          <p class="project-scope-note">The platform remained a development project, with some integrations and network configurations still in progress.</p>
-        </section>
+        </header>
 
-        <section class="project-chapter project-reflection" aria-labelledby="learning-title">
-          <div class="chapter-heading"><h3 id="learning-title">Learning through practical work</h3></div>
-          <p>This project strengthened my Linux administration, networking and web development skills. I learned to investigate faults methodically, use logs to identify problems and test changes across connected systems.</p>
-          <p>It also developed my ability to learn independently and persist through unfamiliar technical problems — experience I want to build on through further study and practical work.</p>
-          <p class="tag-list"><span class="tag">Linux administration</span><span class="tag">Networking</span><span class="tag">Web development</span><span class="tag">Problem-solving</span><span class="tag">Independent learning</span></p>
+        <section class="project-chapter" aria-labelledby="hands-on-photos-title">
+          <div class="chapter-heading"><h3 id="hands-on-photos-title">The build in photos</h3></div>
+          <ul class="work-gallery">
+            <li><a href="assets/work/01.webp"><img src="assets/work/01-thumb.webp" alt="Consumer unit with an RCD and circuit breakers mounted on a backboard" width="854" height="640" loading="lazy" decoding="async"></a><span>Consumer unit on a backboard · Apr 2024</span></li>
+            <li><a href="assets/work/02.webp"><img src="assets/work/02-thumb.webp" alt="Outdoor cable joined and run through conduit along a brick wall" width="854" height="640" loading="lazy" decoding="async"></a><span>Outdoor cable run in conduit · Aug 2025</span></li>
+            <li><a href="assets/work/03.webp"><img src="assets/work/03-thumb.webp" alt="Network rack with a patch panel and switch" width="852" height="640" loading="lazy" decoding="async"></a><span>Network rack and switch · Jan 2026</span></li>
+            <li><a href="assets/work/04.webp"><img src="assets/work/04-thumb.webp" alt="Cables clipped along timber studs" width="640" height="854" loading="lazy" decoding="async"></a><span>Cabling along the studs · Jul 2026</span></li>
+            <li><a href="assets/work/05.webp"><img src="assets/work/05-thumb.webp" alt="Timber stud frame with cables in place before boarding" width="640" height="854" loading="lazy" decoding="async"></a><span>Stud frame before boarding · Jul 2026</span></li>
+            <li><a href="assets/work/06.webp"><img src="assets/work/06-thumb.webp" alt="Cable run fixed down a timber stud" width="640" height="854" loading="lazy" decoding="async"></a><span>Cable run down the framing · Jul 2026</span></li>
+            <li><a href="assets/work/07.webp"><img src="assets/work/07-thumb.webp" alt="Timber shelving frame built around a TV" width="640" height="854" loading="lazy" decoding="async"></a><span>Shelving frame around the TV · Jul 2026</span></li>
+            <li><a href="assets/work/08.webp"><img src="assets/work/08-thumb.webp" alt="Alcove boarded and partly plastered, with a step ladder" width="640" height="854" loading="lazy" decoding="async"></a><span>Alcove boarded and part-plastered · Jul 2026</span></li>
+            <li><a href="assets/work/09.webp"><img src="assets/work/09-thumb.webp" alt="Corner boxed in with plasterboard" width="640" height="854" loading="lazy" decoding="async"></a><span>Boxing-in with plasterboard · Jul 2026</span></li>
+            <li><a href="assets/work/10.webp"><img src="assets/work/10-thumb.webp" alt="Switched fused spur and a network switch mounted on a backboard" width="854" height="640" loading="lazy" decoding="async"></a><span>Fused spur and network switch · Jul 2026</span></li>
+            <li><a href="assets/work/11.webp"><img src="assets/work/11-thumb.webp" alt="Recess with corner beading ready for plaster" width="640" height="854" loading="lazy" decoding="async"></a><span>Recess beaded for plaster · Jul 2026</span></li>
+            <li><a href="assets/work/12.webp"><img src="assets/work/12-thumb.webp" alt="Lighting power supply cable-tied to a timber stud" width="640" height="854" loading="lazy" decoding="async"></a><span>Lighting power supply · Jul 2026</span></li>
+            <li><a href="assets/work/13.webp"><img src="assets/work/13-thumb.webp" alt="TV recessed into the wall above a lit shelf" width="640" height="854" loading="lazy" decoding="async"></a><span>Recessed TV and lit shelf · Jul 2026</span></li>
+            <li><a href="assets/work/14.webp"><img src="assets/work/14-thumb.webp" alt="Cable brought through the ceiling for a light fitting" width="640" height="854" loading="lazy" decoding="async"></a><span>Cable through the ceiling for a light · Jul 2026</span></li>
+            <li><a href="assets/work/15.webp"><img src="assets/work/15-thumb.webp" alt="Wiring connected inside a ceiling rose" width="640" height="854" loading="lazy" decoding="async"></a><span>Ceiling rose wired · Jul 2026</span></li>
+            <li><a href="assets/work/16.webp"><img src="assets/work/16-thumb.webp" alt="Patch panel with Ethernet cables connected" width="640" height="854" loading="lazy" decoding="async"></a><span>Patch panel connected · Aug 2026</span></li>
+            <li><a href="assets/work/17.webp"><img src="assets/work/17-thumb.webp" alt="Metal back box set into the wall with cable" width="854" height="640" loading="lazy" decoding="async"></a><span>Back box set into the wall · Aug 2026</span></li>
+            <li><a href="assets/work/18.webp"><img src="assets/work/18-thumb.webp" alt="Double socket fitted in the wall" width="854" height="640" loading="lazy" decoding="async"></a><span>Double socket fitted · Aug 2026</span></li>
+            <li><a href="assets/work/19.webp"><img src="assets/work/19-thumb.webp" alt="Junction box wired under the floorboards" width="640" height="854" loading="lazy" decoding="async"></a><span>Junction box under the floor · Aug 2026</span></li>
+            <li><a href="assets/work/20.webp"><img src="assets/work/20-thumb.webp" alt="Equipment cabinet with power distribution and network hardware" width="854" height="640" loading="lazy" decoding="async"></a><span>Equipment cabinet · Aug 2026</span></li>
+            <li><a href="assets/work/21.webp"><img src="assets/work/21-thumb.webp" alt="Wi-Fi access point mounted on a ceiling" width="640" height="854" loading="lazy" decoding="async"></a><span>Ceiling Wi-Fi access point · Sep 2026</span></li>
+            <li><a href="assets/work/22.webp"><img src="assets/work/22-thumb.webp" alt="Cable trunking running up a brick chimney breast" width="640" height="854" loading="lazy" decoding="async"></a><span>Trunking up the chimney breast · Sep 2026</span></li>
+            <li><a href="assets/work/23.webp"><img src="assets/work/23-thumb.webp" alt="Floorboards lifted to route cables underneath" width="640" height="854" loading="lazy" decoding="async"></a><span>Cables under the floorboards · Nov 2026</span></li>
+            <li><a href="assets/work/24.webp"><img src="assets/work/24-thumb.webp" alt="Boxed-in corner plastered and partly painted" width="640" height="854" loading="lazy" decoding="async"></a><span>Boxing-in plastered and painted · Nov 2026</span></li>
+          </ul>
+          <p class="tag-list"><span class="tag">Electrical wiring</span><span class="tag">Structured cabling</span><span class="tag">Networking hardware</span><span class="tag">Carpentry</span><span class="tag">Plasterboard</span></p>
         </section>
       </article>
     </section>
@@ -146,7 +190,6 @@
       <p>&copy; <span id="year"></span> Alex Cutrupi</p>
       <nav aria-label="Footer links">
         <a href="https://github.com/alexcutrupi">GitHub</a>
-        <a href="socials.html">Socials</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>

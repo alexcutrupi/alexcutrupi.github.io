@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Education &amp; Electrical Installation Career Goals | Alex Cutrupi</title>
-  <meta name="description" content="Read about Alex Cutrupi’s GCSE studies and career goals in electrical installation, alongside an interest in networking and IT infrastructure.">
+  <title>Education &amp; Electrical Career Goals | Alex Cutrupi</title>
+  <meta name="description" content="Read about Alex Cutrupi’s GCSE studies and career goals in electrical installation and engineering, alongside an interest in networking and IT infrastructure.">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preload" as="image" href="assets/photo-blends/mobile-48.webp" media="(max-width: 800px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/photo-blends/desktop-48.webp" media="(min-width: 800.02px)" fetchpriority="high">
   <script>
+    // Backdrop photo size: the full-quality originals on screens with the pixels to show them (Retina,
+    // 4K, larger phones), the standard ones elsewhere, where they look identical. Chosen before first
+    // paint so only one size is ever downloaded.
     (function () {
-      var saved;
-      try { saved = localStorage.getItem("theme"); } catch (error) {}
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.setAttribute("data-theme", saved);
+      var wide = matchMedia("(min-width: 800.02px)").matches, dpr = window.devicePixelRatio || 1;
+      var full = wide ? Math.max(screen.width, screen.height) * dpr > 2600 : Math.min(screen.width, screen.height) * dpr > 1200;
+      if (full) document.documentElement.setAttribute("data-photo-size", "full");
+      var name = "52" + (full ? "-full" : "") + ".webp", dir = "assets/photo-blends/";
+      [["mobile-", "(max-width: 800px)"], ["desktop-", "(min-width: 800.02px)"]].forEach(function (size) {
+        var link = document.createElement("link");
+        link.rel = "preload"; link.as = "image"; link.href = dir + size[0] + name; link.media = size[1];
+        link.setAttribute("fetchpriority", "high");
+        document.head.appendChild(link);
+      });
+      if (full) {
+        var style = document.createElement("style");
+        style.textContent = ".photo-backdrop{--backdrop-desktop:url(\"" + dir + "desktop-" + name +
+          "\");--backdrop-mobile:url(\"" + dir + "mobile-" + name + "\")}";
+        document.head.appendChild(style);
       }
     })();
   </script>
@@ -24,8 +36,8 @@
   <meta property="og:site_name" content="Alex Cutrupi">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://alexcutrupi.com/education-career.html">
-  <meta property="og:title" content="Education &amp; Electrical Installation Career Goals | Alex Cutrupi">
-  <meta property="og:description" content="Read about Alex Cutrupi’s GCSE studies and career goals in electrical installation, alongside an interest in networking and IT infrastructure.">
+  <meta property="og:title" content="Education &amp; Electrical Career Goals | Alex Cutrupi">
+  <meta property="og:description" content="Read about Alex Cutrupi’s GCSE studies and career goals in electrical installation and engineering, alongside an interest in networking and IT infrastructure.">
   <meta property="og:image" content="https://alexcutrupi.com/assets/alex-cutrupi-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="640">
@@ -34,6 +46,7 @@
   <meta name="twitter:card" content="summary">
 </head>
 <body class="photo-backdrop">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false"><symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9.5 12 4.5l10 5-10 5zM6 11.5v5c3.5 2.3 8.5 2.3 12 0v-5M22 9.5v6"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></symbol></svg>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
@@ -43,24 +56,29 @@
         <li><a href="past-projects.html">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="education-career.html" aria-current="page">Education &amp; Career</a></li>
-        <li><a href="socials.html">Socials</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
-        <span class="icon-sun" aria-hidden="true">☀</span>
-        <span class="icon-moon" aria-hidden="true">☾</span>
-      </button>
     </nav>
   </header>
 
   <div class="backdrop-controls" role="group" aria-label="Backdrop controls" hidden>
-    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">Photos only</button>
-    <button class="backdrop-button backdrop-previous" type="button" aria-label="Previous backdrop" hidden>Previous</button>
-    <button class="backdrop-button backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
-      <span class="backdrop-toggle-label">Pause</span>
-      <span class="backdrop-progress" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8.5 8"/></svg>
+      <span class="backdrop-view-label">Photos only</span>
     </button>
-    <button class="backdrop-button backdrop-next" type="button" aria-label="Next backdrop" hidden>Next</button>
+    <span class="backdrop-divider" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-round backdrop-previous" type="button" aria-label="Previous backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
+      <span class="backdrop-progress" aria-hidden="true"></span>
+      <svg class="backdrop-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="6" width="3.4" height="12" rx="1"/><rect x="13.6" y="6" width="3.4" height="12" rx="1"/></svg>
+      <svg class="backdrop-icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.8v12.4l10-6.2z"/></svg>
+      <span class="backdrop-toggle-label sr-only">Pause</span>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-next" type="button" aria-label="Next backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>
+    </button>
     <span class="sr-only" id="backdrop-status" role="status"></span>
   </div>
 
@@ -69,16 +87,13 @@
       <h1>Education &amp; career</h1>
       <div class="two-col-grid education-grid">
         <div id="education">
-          <h2>Education</h2>
+          <div class="heading-with-icon"><span class="glass-icon" aria-hidden="true"><svg><use href="#i-cap"/></svg></span><h2>Education</h2></div>
           <div class="school-card">
             <p class="school-label">Current school</p>
             <h3 class="school-name">St Peter’s Catholic High School</h3>
-            <p class="school-meta">Orrell, Wigan &middot; Year 11 &middot; Ages 11&ndash;16</p>
+            <p class="school-meta">Orrell, Wigan &middot; Year 11</p>
             <ul class="school-links">
-              <li><a href="https://saintpetershigh.wigan.sch.uk/" target="_blank" rel="noopener">Website</a></li>
-              <li><a href="https://www.facebook.com/StPetersOrrell" target="_blank" rel="noopener">Facebook</a></li>
-              <li><a href="https://instagram.com/stpetersorrell" target="_blank" rel="noopener">Instagram</a></li>
-              <li><a href="https://www.youtube.com/channel/UCp-Cp2rnWEaGvKFMqKMVJbA" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="https://saintpetershigh.wigan.sch.uk/" target="_blank" rel="noopener">School website</a></li>
             </ul>
           </div>
           <p>Studying towards GCSEs in:</p>
@@ -88,9 +103,9 @@
         </div>
 
         <div id="career">
-          <h2>Career goals</h2>
-          <p>My primary career direction is electrical installation — I’ve researched Electrical Installation Levels 1&ndash;3, apprenticeship structures and progression routes into the trade.</p>
-          <p>Alongside that, I want to keep building on my networking and IT infrastructure experience — modern buildings need both, and I’m interested in work that sits across both.</p>
+          <div class="heading-with-icon"><span class="glass-icon" aria-hidden="true"><svg><use href="#i-target"/></svg></span><h2>Career goals</h2></div>
+          <p>I’m aiming for a career in electrical installation and engineering. I’ve researched Electrical Installation Levels 1&ndash;3, apprenticeships and how people progress in the trade.</p>
+          <p>I also want to keep building my networking and IT experience, because modern buildings need both.</p>
         </div>
       </div>
     </section>
@@ -101,9 +116,9 @@
       <span class="page-nav-label">Previous page</span>
       <span class="page-nav-title">Projects</span>
     </a>
-    <a class="page-nav-link page-nav-next" href="socials.html">
+    <a class="page-nav-link page-nav-next" href="contact.html">
       <span class="page-nav-label">Next page</span>
-      <span class="page-nav-title">Socials</span>
+      <span class="page-nav-title">Contact</span>
     </a>
   </nav>
 
@@ -112,7 +127,6 @@
       <p>&copy; <span id="year"></span> Alex Cutrupi</p>
       <nav aria-label="Footer links">
         <a href="https://github.com/alexcutrupi">GitHub</a>
-        <a href="socials.html">Socials</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>

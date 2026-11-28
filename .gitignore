@@ -1,0 +1,5 @@
+.DS_Store
+/.reencode-preview/
+# Original photos with location data; the site uses stripped copies in assets/
+/work/
+/live photos/

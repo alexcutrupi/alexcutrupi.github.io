@@ -4,18 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Cutrupi | Electrical, Networking &amp; IT Portfolio</title>
-  <meta name="description" content="Explore Alex Cutrupi’s portfolio of electrical installation interests, Linux server and networking projects, and travel photography across England and Wales.">
+  <meta name="description" content="Explore Alex Cutrupi’s portfolio of electrical installation and engineering interests, Linux server and networking projects, and travel photography across England and Wales.">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preload" as="image" href="assets/photo-blends/mobile-48.webp" media="(max-width: 800px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/photo-blends/desktop-48.webp" media="(min-width: 800.02px)" fetchpriority="high">
   <script>
-    (function () {
-      var saved;
-      try { saved = localStorage.getItem("theme"); } catch (error) {}
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.setAttribute("data-theme", saved);
+    // Opening titles: on arriving at the home page and on reload, but not when coming back from
+    // another page of the site. Set before first paint so the page never flashes first.
+    try {
+      var entry = performance.getEntriesByType("navigation")[0];
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches &&
+          (!sessionStorage.getItem("introSeen") || (entry && entry.type === "reload"))) {
+        document.documentElement.classList.add("intro");
+        // The intro always opens at the top of the page: don't restore the old scroll position on reload.
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        // Never leave the page hidden if the main script fails to load.
+        window.introFailsafe = setTimeout(function () { document.documentElement.classList.remove("intro"); }, 7000);
       }
+    } catch (error) {}
+  </script>
+  <script>
+    // Open on a random Live Photo scene, chosen before first paint so the page never shows another photo
+    // first. Keep this list in step with "motion" in assets/photo-blends/scenes.json.
+    (function () {
+      var live = [52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 77];
+      var scene = live[Math.floor(Math.random() * live.length)];
+      // Full-quality photos on screens with the pixels to show them (Retina, 4K, larger phones);
+      // standard ones elsewhere, where they look identical.
+      var wide = matchMedia("(min-width: 800.02px)").matches, dpr = window.devicePixelRatio || 1;
+      var full = wide ? Math.max(screen.width, screen.height) * dpr > 2600 : Math.min(screen.width, screen.height) * dpr > 1200;
+      if (full) document.documentElement.setAttribute("data-photo-size", "full");
+      var name = (scene < 10 ? "0" : "") + scene + (full ? "-full" : "") + ".webp";
+      var dir = "assets/photo-blends/";
+      document.documentElement.setAttribute("data-opening", scene);
+      [["mobile-", "(max-width: 800px)"], ["desktop-", "(min-width: 800.02px)"]].forEach(function (size) {
+        var link = document.createElement("link");
+        link.rel = "preload"; link.as = "image"; link.href = dir + size[0] + name; link.media = size[1];
+        link.setAttribute("fetchpriority", "high");
+        document.head.appendChild(link);
+      });
+      var style = document.createElement("style");
+      style.textContent = ".photo-backdrop{--backdrop-desktop:url(\"" + dir + "desktop-" + name +
+        "\");--backdrop-mobile:url(\"" + dir + "mobile-" + name + "\")}";
+      document.head.appendChild(style);
     })();
   </script>
   <link rel="canonical" href="https://alexcutrupi.com/">
@@ -25,7 +55,7 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://alexcutrupi.com/">
   <meta property="og:title" content="Alex Cutrupi | Electrical, Networking &amp; IT Portfolio">
-  <meta property="og:description" content="Explore Alex Cutrupi’s portfolio of electrical installation interests, Linux server and networking projects, and travel photography across England and Wales.">
+  <meta property="og:description" content="Explore Alex Cutrupi’s portfolio of electrical installation and engineering interests, Linux server and networking projects, and travel photography across England and Wales.">
   <meta property="og:image" content="https://alexcutrupi.com/assets/alex-cutrupi-share.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="640">
@@ -50,7 +80,7 @@
       "@id": "https://alexcutrupi.com/#profile",
       "url": "https://alexcutrupi.com/",
       "name": "Alex Cutrupi | Electrical, Networking & IT Portfolio",
-      "description": "Explore Alex Cutrupi’s portfolio of electrical installation interests, Linux server and networking projects, and travel photography across England and Wales.",
+      "description": "Explore Alex Cutrupi’s portfolio of electrical installation and engineering interests, Linux server and networking projects, and travel photography across England and Wales.",
       "isPartOf": {
         "@id": "https://alexcutrupi.com/#website"
       },
@@ -76,6 +106,17 @@
   </script>
 </head>
 <body class="photo-backdrop home-page">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false"><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></symbol><symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.3"/><circle cx="5" cy="19" r="2.3"/><circle cx="19" cy="19" r="2.3"/><path d="M12 7.3v4.2M12 11.5l-5.3 5.7M12 11.5l5.3 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol></svg>
+  <div class="opening-titles" aria-hidden="true">
+    <div class="intro-fade"></div>
+    <div class="intro-veil"></div>
+    <div class="intro-bar intro-bar-top"></div>
+    <div class="intro-bar intro-bar-bottom"></div>
+    <div class="intro-titles">
+      <p class="intro-name"><span style="--i:0">A</span><span style="--i:1">l</span><span style="--i:2">e</span><span style="--i:3">x</span><span style="--i:4">&nbsp;</span><span style="--i:5">C</span><span style="--i:6">u</span><span style="--i:7">t</span><span style="--i:8">r</span><span style="--i:9">u</span><span style="--i:10">p</span><span style="--i:11">i</span><span class="intro-dot">.</span></p>
+      <p class="intro-skill"></p>
+    </div>
+  </div>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
@@ -85,24 +126,29 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="education-career.html">Education &amp; Career</a></li>
-        <li><a href="socials.html">Socials</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" hidden>
-        <span class="icon-sun" aria-hidden="true">☀</span>
-        <span class="icon-moon" aria-hidden="true">☾</span>
-      </button>
     </nav>
   </header>
 
   <div class="backdrop-controls" role="group" aria-label="Backdrop controls" hidden>
-    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">Photos only</button>
-    <button class="backdrop-button backdrop-previous" type="button" aria-label="Previous backdrop" hidden>Previous</button>
-    <button class="backdrop-button backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
-      <span class="backdrop-toggle-label">Pause</span>
-      <span class="backdrop-progress" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-view" type="button" aria-controls="main">
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8.5 8"/></svg>
+      <span class="backdrop-view-label">Photos only</span>
     </button>
-    <button class="backdrop-button backdrop-next" type="button" aria-label="Next backdrop" hidden>Next</button>
+    <span class="backdrop-divider" aria-hidden="true"></span>
+    <button class="backdrop-button backdrop-round backdrop-previous" type="button" aria-label="Previous backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-toggle" type="button" aria-label="Pause backdrop" hidden>
+      <span class="backdrop-progress" aria-hidden="true"></span>
+      <svg class="backdrop-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="6" width="3.4" height="12" rx="1"/><rect x="13.6" y="6" width="3.4" height="12" rx="1"/></svg>
+      <svg class="backdrop-icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.8v12.4l10-6.2z"/></svg>
+      <span class="backdrop-toggle-label sr-only">Pause</span>
+    </button>
+    <button class="backdrop-button backdrop-round backdrop-next" type="button" aria-label="Next backdrop" hidden>
+      <svg class="backdrop-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg>
+    </button>
     <span class="sr-only" id="backdrop-status" role="status"></span>
   </div>
 
@@ -111,91 +157,72 @@
     <section class="container home-hero story-panel" aria-labelledby="home-title">
       <div class="hero-copy">
         <div class="hero-identity">
-          <img class="hero-portrait" src="assets/alex-cutrupi.webp" alt="Alex Cutrupi" draggable="false" width="640" height="640">
+          <img class="hero-portrait" src="assets/alex-cutrupi-portrait.webp" alt="Alex Cutrupi" draggable="false" width="400" height="400">
           <h1 id="home-title">Alex Cutrupi<span class="hero-period">.</span></h1>
         </div>
-        <p class="hero-intro">Year 11 student exploring electrical installation, networking and IT infrastructure.</p>
+        <p class="hero-intro">Year 11 student exploring electrical installation and engineering, networking and IT infrastructure.</p>
         <div class="button-row">
-          <a class="button button-primary" href="#featured-work">Explore my work</a>
+          <a class="hero-button" href="#about-me">Explore my work<span class="hero-button-arrow" aria-hidden="true">↓</span></a>
         </div>
       </div>
+    </section>
+
+    <div class="story-marker" id="about-me"></div>
+    <section class="section container home-about-me story-panel" aria-labelledby="about-me-title">
+      <h2 id="about-me-title">About me</h2>
+      <p>I’m a <mark class="hl" style="--hl:0">passionate and self-motivated</mark> individual with a strong interest in <mark class="hl" style="--hl:1">electrical engineering</mark>, <mark class="hl" style="--hl:2">software development</mark> and technology. I started <mark class="hl" style="--hl:3">programming at 12</mark> and learning about <mark class="hl" style="--hl:4">electrical systems at 13</mark>.</p>
+      <p>I enjoy <mark class="hl" style="--hl:5">building practical projects</mark>, <mark class="hl" style="--hl:6">solving technical problems</mark> and developing new skills independently. I also have <mark class="hl" style="--hl:7">basic plumbing experience</mark>. My ambition is to pursue a career in <mark class="hl" style="--hl:8">electrical installation and engineering</mark> while continuing to explore software development and <mark class="hl" style="--hl:9">industrial automation</mark>.</p>
+      <p>I have a strong interest in <mark class="hl" style="--hl:10">railways</mark>, particularly trains, <mark class="hl" style="--hl:11">railway signalling</mark>, infrastructure and the <mark class="hl" style="--hl:12">control systems</mark> that ensure safe and efficient railway operations. I also <mark class="hl" style="--hl:13">travel independently</mark> across the UK by rail, planning journeys with multiple connections and adapting when there’s disruption.</p>
+      <dl class="about-focus">
+        <div><dt><span class="glass-icon is-small" aria-hidden="true"><svg><use href="#i-bolt"/></svg></span>Electrical &amp; controls</dt><dd>Installation, lighting and electronics</dd></div>
+        <div><dt><span class="glass-icon is-small" aria-hidden="true"><svg><use href="#i-network"/></svg></span>Networking &amp; servers</dt><dd>Cabling, Linux and infrastructure</dd></div>
+        <div><dt><span class="glass-icon is-small" aria-hidden="true"><svg><use href="#i-code"/></svg></span>Software &amp; automation</dt><dd>Web, scripting and smart homes</dd></div>
+      </dl>
+      <p class="about-links"><a class="text-link" href="skills.html">Explore my skills</a><a class="text-link" href="education-career.html">Education &amp; career</a></p>
     </section>
 
     <div class="story-marker" id="featured-work"></div>
-    <section class="section container home-work story-panel" aria-labelledby="featured-title">
+    <div class="story-marker" id="projects"></div>
+    <section class="section container home-projects story-panel" aria-labelledby="home-projects-title">
       <div class="section-heading">
-        <h2 id="featured-title">Featured work</h2>
+        <h2 id="home-projects-title">Projects</h2>
         <a class="text-link" href="past-projects.html">View all projects</a>
       </div>
-      <article class="featured-project">
-        <div class="featured-copy">
-          <p class="eyebrow">Infrastructure case study · 2025–2026</p>
-          <h3>BlastHost</h3>
-          <p>I set up Linux servers, connected them through VPNs and built a website for an experimental hosting platform.</p>
-          <ul class="tag-list" aria-label="Project technologies">
-            <li class="tag">Linux</li>
-            <li class="tag">Next.js</li>
-            <li class="tag">WireGuard</li>
-          </ul>
-          <a class="button button-primary" href="past-projects.html#blasthost">Read the case study</a>
-        </div>
-        <img class="featured-image" draggable="false" src="assets/server-rack.webp" alt="" width="960" height="541" loading="lazy">
-      </article>
-    </section>
-
-    <div class="story-marker" id="experience"></div>
-    <div class="story-marker" id="projects"></div>
-    <section class="section container home-experience story-panel" aria-labelledby="home-projects-title">
-      <h2 id="home-projects-title">Projects</h2>
-      <div class="experience-list">
-        <article class="experience-entry">
-          <p class="experience-label"><time datetime="2026-11">November 2026</time> – Present</p>
-          <div>
-            <h3><a href="past-projects.html#pistopass" class="text-link">Pistopass</a></h3>
-            <p>Customer loyalty</p>
+      <div class="project-cards">
+        <a class="project-card" href="past-projects.html#hands-on">
+          <img src="assets/work/13-thumb.webp" alt="" width="640" height="854" loading="lazy" decoding="async" draggable="false">
+          <div class="project-card-copy">
+            <p class="eyebrow">Apr 2024 – Present</p>
+            <h3>Home network &amp; room build</h3>
+            <p>Walls framed and boarded, power and network cabling, lighting, a rack, patch panel and Wi-Fi.</p>
           </div>
-          <p>I’m building Pistopass to help businesses run loyalty card programmes and reward repeat visits.</p>
-        </article>
-        <article class="experience-entry">
-          <p class="experience-label">Jul 2025 – Jan 2026</p>
-          <div>
-            <h3><a href="past-projects.html#blasthost" class="text-link">BlastHost</a></h3>
-            <p>Hosting infrastructure project</p>
+        </a>
+        <a class="project-card" href="past-projects.html#blasthost">
+          <img src="assets/server-rack.webp" alt="" width="960" height="541" loading="lazy" decoding="async" draggable="false">
+          <div class="project-card-copy">
+            <p class="eyebrow">Jul 2025 – Jan 2026</p>
+            <h3>BlastHost</h3>
+            <p>Linux servers, a game hosting panel and a Next.js website, linked over WireGuard.</p>
           </div>
-          <p>Configured a physical Debian server, deployed a Next.js website with Nginx and systemd, and established and tested an OpenVPN connection.</p>
-        </article>
-        <article class="experience-entry">
-          <p class="experience-label">Self-directed</p>
-          <div>
-            <h3>Independent projects</h3>
-            <p>Networking, automation &amp; hardware</p>
+        </a>
+        <a class="project-card" href="past-projects.html#pistopass">
+          <div class="loyalty-card" aria-hidden="true">
+            <span class="loyalty-card-name">Pistopass</span>
+            <span class="loyalty-stamps"><i></i><i></i><i></i><i></i><i></i><i class="is-empty"></i><i class="is-empty"></i><i class="is-empty"></i></span>
           </div>
-          <p>Worked with Ethernet cabling, managed switches and Wi-Fi access points, experimented with Home Assistant automations, and built and troubleshot PCs.</p>
-        </article>
+          <div class="project-card-copy">
+            <p class="eyebrow">Nov 2026 – Present</p>
+            <h3>Pistopass</h3>
+            <p>Loyalty card programmes that help businesses reward customers for coming back.</p>
+          </div>
+        </a>
       </div>
-    </section>
-
-    <div class="story-marker" id="about"></div>
-    <section class="section container home-about story-panel" aria-labelledby="about-title">
-      <div class="about-copy">
-        <h2 id="about-title">What I work with</h2>
-        <p>I learn by getting hands-on, whether I’m configuring a server, exploring lighting controls or building a web project.</p>
-        <div class="button-row">
-          <a class="button button-outline" href="skills.html">Explore my skills</a>
-          <a class="text-link" href="education-career.html">Education &amp; career</a>
-        </div>
-      </div>
-      <dl class="focus-list">
-        <div><dt>Electrical &amp; controls</dt><dd>Electrical installation, lighting and electronics.</dd></div>
-        <div><dt>Networking &amp; servers</dt><dd>Network cabling, Linux and infrastructure.</dd></div>
-        <div><dt>Software &amp; automation</dt><dd>Web development, scripting and smart-home systems.</dd></div>
-      </dl>
     </section>
 
     <div class="story-marker" id="places-explored"></div>
     <section class="section container story-panel places-map" aria-labelledby="places-explored-title">
       <header class="places-copy">
-        <h2 id="places-explored-title">Places photography can take you</h2>
+        <h2 id="places-explored-title">Places I’ve found opportunities for photography</h2>
       </header>
 
       <figure class="places-figure">
@@ -332,7 +359,6 @@
       <small class="places-credit">Contains OS data © Crown Copyright and database rights 2026.</small>
       <nav aria-label="Footer links">
         <a href="https://github.com/alexcutrupi">GitHub</a>
-        <a href="socials.html">Socials</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
