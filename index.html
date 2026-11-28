@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Cutrupi | Electrical, Networking &amp; IT Portfolio</title>
   <meta name="description" content="Explore Alex Cutrupi’s portfolio of electrical installation and engineering interests, Linux server and networking projects, and travel photography across England and Wales.">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="styles.css?v=280966a3">
   <script>
     // Opening titles: on arriving at the home page and on reload, but not when coming back from
@@ -48,6 +52,13 @@
       document.head.appendChild(style);
     })();
   </script>
+  <meta name="author" content="Alex Cutrupi">
+  <meta name="theme-color" content="#1b1f18">
+  <link rel="me" href="https://github.com/alexcutrupi">
+  <link rel="me" href="https://www.instagram.com/cutrupi.alex/">
+  <link rel="me" href="https://www.youtube.com/@alexcutrupi">
+  <link rel="me" href="https://www.facebook.com/alex.cutrupi.3/">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text profile for AI assistants">
   <link rel="canonical" href="https://alexcutrupi.com/">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta property="og:type" content="website">
@@ -61,7 +72,7 @@
   <meta property="og:image:width" content="640">
   <meta property="og:image:height" content="640">
   <meta property="og:image:alt" content="Portrait of Alex Cutrupi">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,18 +82,29 @@
       "@id": "https://alexcutrupi.com/#website",
       "url": "https://alexcutrupi.com/",
       "name": "Alex Cutrupi",
+      "inLanguage": "en-GB",
       "publisher": {
+        "@id": "https://alexcutrupi.com/#alex-cutrupi"
+      },
+      "author": {
         "@id": "https://alexcutrupi.com/#alex-cutrupi"
       }
     },
     {
       "@type": "ProfilePage",
-      "@id": "https://alexcutrupi.com/#profile",
+      "@id": "https://alexcutrupi.com/#page",
       "url": "https://alexcutrupi.com/",
       "name": "Alex Cutrupi | Electrical, Networking & IT Portfolio",
       "description": "Explore Alex Cutrupi’s portfolio of electrical installation and engineering interests, Linux server and networking projects, and travel photography across England and Wales.",
+      "inLanguage": "en-GB",
       "isPartOf": {
         "@id": "https://alexcutrupi.com/#website"
+      },
+      "about": {
+        "@id": "https://alexcutrupi.com/#alex-cutrupi"
+      },
+      "author": {
+        "@id": "https://alexcutrupi.com/#alex-cutrupi"
       },
       "mainEntity": {
         "@id": "https://alexcutrupi.com/#alex-cutrupi"
@@ -93,12 +115,73 @@
       "@id": "https://alexcutrupi.com/#alex-cutrupi",
       "name": "Alex Cutrupi",
       "url": "https://alexcutrupi.com/",
-      "image": "https://alexcutrupi.com/assets/alex-cutrupi.webp",
+      "image": {
+        "@type": "ImageObject",
+        "contentUrl": "https://alexcutrupi.com/assets/alex-cutrupi-portrait.webp",
+        "caption": "Alex Cutrupi",
+        "width": 400,
+        "height": 400,
+        "creator": {
+          "@type": "Person",
+          "name": "Alex Cutrupi",
+          "url": "https://alexcutrupi.com/"
+        },
+        "creditText": "Alex Cutrupi",
+        "copyrightNotice": "© Alex Cutrupi"
+      },
+      "description": "Year 11 student in the UK aiming for a career in electrical installation and engineering. Started programming at 12 and learning about electrical systems at 13. Builds practical projects in electrical wiring, networking, Linux servers and web development, with a strong interest in railways, railway signalling and control systems.",
+      "jobTitle": "Student",
+      "knowsAbout": [
+        "Electrical installation",
+        "Electrical engineering",
+        "Electrical systems",
+        "Lighting control (DMX, Art-Net)",
+        "Structured cabling",
+        "Computer networking",
+        "Wi-Fi and managed switches",
+        "Linux server administration",
+        "WireGuard and VPNs",
+        "Web development",
+        "Next.js",
+        "Python",
+        "Home Assistant automation",
+        "Industrial automation",
+        "Plastering",
+        "Woodworking",
+        "Basic plumbing",
+        "Railway signalling",
+        "Railway infrastructure",
+        "Photography"
+      ],
+      "knowsLanguage": "English",
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "North West England",
+          "addressCountry": "GB"
+        }
+      },
+      "seeks": {
+        "@type": "Demand",
+        "description": "An apprenticeship or career in electrical installation and engineering"
+      },
       "sameAs": [
         "https://github.com/alexcutrupi",
-        "https://www.facebook.com/alex.cutrupi.3/",
         "https://www.instagram.com/cutrupi.alex/",
-        "https://www.youtube.com/@alexcutrupi"
+        "https://www.youtube.com/@alexcutrupi",
+        "https://www.facebook.com/alex.cutrupi.3/"
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://alexcutrupi.com/past-projects.html#hands-on"
+        },
+        {
+          "@id": "https://alexcutrupi.com/past-projects.html#blasthost"
+        },
+        {
+          "@id": "https://alexcutrupi.com/past-projects.html#pistopass"
+        }
       ]
     }
   ]
@@ -190,7 +273,7 @@
       </div>
       <div class="project-cards">
         <a class="project-card" href="past-projects.html#hands-on">
-          <img src="assets/work/13-thumb.webp" alt="" width="640" height="854" loading="lazy" decoding="async" draggable="false">
+          <img src="assets/work/home-build-recessed-tv-and-lit-shelf-thumb.webp" alt="" width="640" height="854" loading="lazy" decoding="async" draggable="false">
           <div class="project-card-copy">
             <p class="eyebrow">Apr 2024 – Present</p>
             <h3>Home network &amp; room build</h3>

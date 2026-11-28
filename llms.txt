@@ -1,11 +1,32 @@
 # Alex Cutrupi
 
-Personal portfolio of Alex Cutrupi, covering electrical installation and engineering, networking, IT infrastructure, and hands-on projects.
+> Alex Cutrupi is a Year 11 student in North West England aiming for a career in electrical installation and engineering. He started programming at 12 and learning about electrical systems at 13, and builds practical projects across electrical wiring, networking, Linux servers and web development. He has a strong interest in railways, railway signalling and control systems, and travels independently across the UK by rail.
 
-## Main pages
+Website: https://alexcutrupi.com/ · Email: me@alexcutrupi.com · GitHub: https://github.com/alexcutrupi
 
-- [Home](https://alexcutrupi.com/)
-- [Projects](https://alexcutrupi.com/past-projects.html)
-- [Skills](https://alexcutrupi.com/skills.html)
-- [Education and Career](https://alexcutrupi.com/education-career.html)
-- [Contact](https://alexcutrupi.com/contact.html)
+## Key facts
+
+- Career goal: electrical installation and engineering, while continuing with software development and industrial automation.
+- Studying towards GCSEs including Mathematics, Combined Science, Computer Science, Engineering and Photography.
+- Skills: electrical systems (single- and three-phase layouts, consumer units, protection and isolation), lighting control (DMX, Art-Net, QLC+), structured cabling, Wi-Fi and managed switches, VLANs, Linux server administration, WireGuard VPNs, web development (Next.js), Python and shell scripting, Home Assistant automation, PC building, plastering, woodworking and basic plumbing.
+- Personal qualities shown through his projects: independent learning, technical problem-solving, troubleshooting, persistence, practical ability, attention to detail, project planning, systems thinking, initiative, entrepreneurial thinking, creativity and adaptability.
+- Interests: railways (signalling, infrastructure, control systems), photography and travel.
+
+## Projects
+
+- [Pistopass](https://alexcutrupi.com/past-projects.html#pistopass) (Nov 2026 – present): loyalty card programmes that help businesses reward customers for coming back.
+- [Home network & room build](https://alexcutrupi.com/past-projects.html#hands-on) (Apr 2024 – present): framing and boarding walls, running power and network cabling, wiring lights, and setting up a rack, patch panel and Wi-Fi.
+- [BlastHost](https://alexcutrupi.com/past-projects.html#blasthost) (Jul 2025 – Jan 2026): Linux servers, a Pterodactyl game hosting panel, a Next.js website and WireGuard networking for a hosting platform.
+
+## Pages
+
+- [Home](https://alexcutrupi.com/): about Alex, projects and places photographed
+- [Projects](https://alexcutrupi.com/past-projects.html): project write-ups and the home build photo gallery
+- [Skills](https://alexcutrupi.com/skills.html): practical, electrical and IT skills, and personal qualities with evidence
+- [Education & Career](https://alexcutrupi.com/education-career.html): GCSE studies and career goals
+- [Contact](https://alexcutrupi.com/contact.html): email and social profiles
+
+## Optional
+
+- [Full text of the site](https://alexcutrupi.com/llms-full.txt): every page as plain text
+- [Instagram](https://www.instagram.com/cutrupi.alex/) · [YouTube](https://www.youtube.com/@alexcutrupi) · [Facebook](https://www.facebook.com/alex.cutrupi.3/)

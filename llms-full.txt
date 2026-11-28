@@ -1,0 +1,237 @@
+# Alex Cutrupi: full site text
+
+> Every page of https://alexcutrupi.com/ as plain text. A shorter profile is at https://alexcutrupi.com/llms.txt
+
+---
+
+Page: Home (https://alexcutrupi.com/)
+
+# Alex Cutrupi .
+Year 11 student exploring electrical installation and engineering, networking and IT infrastructure.
+
+## About me
+I’m a passionate and self-motivated individual with a strong interest in electrical engineering, software development and technology. I started programming at 12 and learning about electrical systems at 13.
+I enjoy building practical projects, solving technical problems and developing new skills independently. I also have basic plumbing experience. My ambition is to pursue a career in electrical installation and engineering while continuing to explore software development and industrial automation.
+I have a strong interest in railways, particularly trains, railway signalling, infrastructure and the control systems that ensure safe and efficient railway operations. I also travel independently across the UK by rail, planning journeys with multiple connections and adapting when there’s disruption.
+**Electrical & controls**
+Installation, lighting and electronics
+**Networking & servers**
+Cabling, Linux and infrastructure
+**Software & automation**
+Web, scripting and smart homes
+Explore my skills Education & career
+
+## Projects
+Apr 2024 – Present
+
+### Home network & room build
+Walls framed and boarded, power and network cabling, lighting, a rack, patch panel and Wi-Fi.
+Jul 2025 – Jan 2026
+
+### BlastHost
+Linux servers, a game hosting panel and a Next.js website, linked over WireGuard.
+Nov 2026 – Present
+
+### Pistopass
+Loyalty card programmes that help businesses reward customers for coming back.
+
+## Places I’ve found opportunities for photography
+
+### England
+- Bexley
+- Blackpool
+- Brighton
+- Chester
+- Chorley
+- Crewe
+- Dartford
+- Greenhithe
+- Leyland
+- Liverpool
+- London
+- Lytham St Annes
+- Manchester
+- Ormskirk
+- Orrell
+- Preston
+- Rugby
+- Salford
+- Shevington
+- Shrewsbury
+- Sidcup
+- Southport
+- St Helens
+- Stoke-on-Trent
+- Tamworth
+- Uttoxeter
+- Warrington
+- Watford
+- Widnes
+- Wigan
+- Wrightington
+- York
+
+### Wales
+- Borth
+- Conwy
+- Llandudno
+
+## Let’s talk.
+
+---
+
+Page: Projects (https://alexcutrupi.com/past-projects.html)
+
+# Projects
+My work on customer loyalty cards, Linux hosting and hands-on building.
+Customer loyalty
+
+## Pistopass
+I’m building Pistopass to give businesses a simple way to run loyalty card programmes and reward customers for coming back.
+**Period**
+November 2026 – Present
+Hosting & IT infrastructure
+
+## BlastHost
+A hosting platform linked to InstantBay for services such as Minecraft servers. I worked on the servers, networking and website.
+**Period**
+July 2025 – January 2026
+**Role**
+Servers, networking & website
+
+### What I did
+
+#### Linux servers
+Set up a physical Debian server and Ubuntu VPSs, installed services, managed permissions and troubleshot startup issues.
+Tools: Debian, Ubuntu, UFW
+
+#### Game hosting panel
+Ran Pterodactyl for game servers and customised its Laravel-based panel for BlastHost.
+Tools: Pterodactyl, Laravel
+
+#### Website
+Built the site in Next.js and deployed it on Linux behind Nginx, managed by systemd.
+Tools: Next.js, Node.js, Nginx, systemd
+
+#### Networking & email
+Linked home servers to a VPS with WireGuard, worked with routing, NAT and port forwarding, and set up a mail server with TLS.
+Tools: WireGuard, OpenVPN, Postfix, Dovecot
+Linux administration Networking Web development Problem-solving
+Hands-on building
+
+## Home network & room build
+Practical building and wiring work at home: framing and boarding walls, running power and network cabling, wiring lights, and setting up a rack, patch panel and Wi-Fi.
+**Period**
+April 2024 – Present
+
+### The build in photos
+- Boxing-in plastered and painted · Nov 2026
+Electrical wiring Structured cabling Networking hardware Carpentry Plasterboard
+
+---
+
+Page: Skills (https://alexcutrupi.com/skills.html)
+
+# Skills & knowledge
+What I’ve been learning over the past three years, mostly by building things at home.
+
+## Practical skills
+
+### Plastering
+Boarding, preparing surfaces, and plastering and finishing walls.
+
+### Woodworking
+Measuring, cutting and joining timber for stud walls and shelving.
+See it in my home build
+
+## Electrical & lighting
+Self-directed study
+
+### Electrical systems
+- Single- and three-phase installation layouts
+- Consumer units, protection and isolation
+- Drawing distribution layouts to balance phases and loads
+Learning & experimenting
+
+### Lighting & control
+- DMX and Art-Net universes and fixture addressing
+- Show programming in QLC+
+
+## Networking & IT
+
+### Networks & cabling
+- Ethernet cable routing and termination
+- Wi-Fi access points and managed switches
+- VLANs and fibre connections
+
+### Linux & servers
+- Linux server setup and remote administration
+- Hosting and domain configuration
+
+### Code & automation
+- Python and shell scripting
+- Working with APIs
+- Home Assistant automations
+
+### Computers & hardware
+- PC building and upgrades
+- Hardware troubleshooting
+
+## Personal qualities
+What my projects show, rather than what I’d just claim.
+Independent learning · Research
+I taught myself Linux, networking and electrical theory at home, and researched Electrical Installation Levels 1–3 and apprenticeship routes. Career goals
+Technical problem-solving · Logical thinking · Troubleshooting · Persistence
+On BlastHost I worked through failing builds, mail logins and services that wouldn’t start, using logs to find the cause. BlastHost
+Practical ability · Attention to detail
+I framed, boarded and plastered walls and ran tidy power and network cabling in my home build. Home build
+Project planning · Systems thinking
+I plan how the parts connect, from cable routes through a room to distribution layouts that balance phases and loads.
+Initiative · Entrepreneurial thinking · Creativity
+I started Pistopass to help businesses reward returning customers, and customised BlastHost’s game panel to fit the brand. Pistopass
+Adaptability · Technical curiosity
+I move between software, networking and hands-on building, and keep trying new things like DMX lighting and Home Assistant.
+Independence · Journey planning · Time management
+I travel independently across the UK by rail: planning journeys with several trains and connections, finding another route when services are delayed or cancelled, and keeping costs down with split tickets and off-peak fares.
+
+---
+
+Page: Education & Career (https://alexcutrupi.com/education-career.html)
+
+# Education & career
+
+## Education
+Current school
+
+### St Peter’s Catholic High School
+Orrell, Wigan · Year 11
+- School website
+Studying towards GCSEs in:
+English Language English Literature Mathematics Combined Science Computer Science Engineering Photography Religious Education
+
+## Career goals
+I’m aiming for a career in electrical installation and engineering. I’ve researched Electrical Installation Levels 1–3, apprenticeships and how people progress in the trade.
+I also want to keep building my networking and IT experience, because modern buildings need both.
+
+---
+
+Page: Contact (https://alexcutrupi.com/contact.html)
+
+# Get in touch
+Have a project to talk about, or just want to say hello?
+
+## Email
+
+## Find me online
+
+### GitHub
+@alexcutrupi
+
+### Instagram
+@cutrupi.alex
+
+### YouTube
+@alexcutrupi
+
+### Facebook
+Alex Cutrupi

@@ -1,0 +1,13 @@
+{
+  "name": "Alex Cutrupi",
+  "short_name": "Alex Cutrupi",
+  "description": "Portfolio of Alex Cutrupi: electrical installation and engineering, networking, IT and hands-on projects.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1b1f18",
+  "theme_color": "#1b1f18",
+  "icons": [
+    { "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
