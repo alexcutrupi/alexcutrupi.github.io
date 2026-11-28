@@ -1,3 +1,4 @@
+/*! (c) Alex Cutrupi. All rights reserved. Copying or reuse without permission is not allowed. See LICENSE. */
 (() => {
   const map = document.querySelector(".places-map");
   if (!map) return;

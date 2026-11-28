@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# (c) Alex Cutrupi. All rights reserved. See LICENSE.
 """Build three-photo backdrop blends (stills + looping Live Photo motion) for the portfolio.
 
 Usage: make_blends.py <photos-dir> <output-dir> <first-scene-number> [--motion-only]

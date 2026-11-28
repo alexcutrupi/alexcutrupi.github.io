@@ -1,3 +1,4 @@
+/*! (c) Alex Cutrupi. All rights reserved. Copying or reuse without permission is not allowed. See LICENSE. */
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 

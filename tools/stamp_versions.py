@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# (c) Alex Cutrupi. All rights reserved. See LICENSE.
 """Stamp each page's links to styles.css, script.js and places-map.js with a short hash of the file.
 
 Browsers (Safari on iPhone especially) cache these files, and GitHub Pages lets them keep a copy for

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# (c) Alex Cutrupi. All rights reserved. See LICENSE.
 """Build the home page intro's Live Photo montages: one video per variant instead of a clip per scene.
 
 Each montage is ten Live Photo scenes picked at random, 0.4s apiece with short dissolves between them,

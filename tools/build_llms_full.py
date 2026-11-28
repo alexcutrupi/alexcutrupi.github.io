@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# (c) Alex Cutrupi. All rights reserved. See LICENSE.
 """Write llms-full.txt: the text of every page as plain Markdown, for AI assistants.
 
 Run after editing page content (and before deploying):  python3 tools/build_llms_full.py
