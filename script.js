@@ -214,46 +214,54 @@ async function buildReel(intro) {
     return video;
   });
 
-  // Wait for both to load (or fail), but not for long.
+  // Wait until each video knows its length (or fails), but not for long. Safari on iPhone often won't
+  // download the actual frames until a video is asked to play, so this only waits for the metadata.
   await new Promise(resolve => {
     let pending = clips.length;
     const settle = () => { if (--pending === 0) resolve(); };
     for (const video of clips) {
-      if (video.readyState >= 2) settle();
+      if (video.readyState >= 1) settle();
       else {
-        video.addEventListener("loadeddata", settle, { once: true });
+        video.addEventListener("loadedmetadata", settle, { once: true });
         video.addEventListener("error", settle, { once: true });
       }
     }
-    window.setTimeout(resolve, 2500);
+    window.setTimeout(resolve, 2000);
   });
   clips.filter(video => video.error).forEach(releaseVideo);
   clips = clips.filter(video => !video.error);
   if (!clips.length) return null;
 
+  // If no video manages to play (Low Power Mode blocks autoplay on iPhone, for example), light the
+  // titles over the backdrop photo instead of leaving the screen black.
+  const fallback = window.setTimeout(() => intro.classList.add("is-lit"), 2200);
   let current = -1;
   // `endIn` (ms): start part-way through so the clip reaches its last frame exactly then. The opening
   // scene's last frame matches the still underneath, so the reveal lands on it without a jump.
-  const reveal = (video, endIn) => {
+  // Playing is what makes Safari load a video, so each clip is started straight away and only shown
+  // once it is actually moving; until then the previous clip stays up.
+  const reveal = (video, endIn, index) => {
     video.playbackRate = Number(video.dataset.rate) || 1;
     if (endIn && video.duration) video.currentTime = Math.max(0, video.duration - (endIn / 1000) * video.playbackRate);
-    video.play().catch(() => {});
-    for (const other of clips) {
-      if (other.classList.contains("is-on") && other !== video) {
-        other.classList.remove("is-on");
-        window.setTimeout(() => releaseVideo(other), 450); // Free it once it has faded out.
+    const show = () => {
+      if (current !== index) return; // The next clip's turn has already come.
+      for (const other of clips) {
+        if (other.classList.contains("is-on") && other !== video) {
+          other.classList.remove("is-on");
+          window.setTimeout(() => releaseVideo(other), 450); // Free it once it has faded out.
+        }
       }
-    }
-    video.classList.add("is-on");
-    intro.classList.add("is-lit"); // Fade up from black on the first clip.
+      video.classList.add("is-on");
+      window.clearTimeout(fallback);
+      intro.classList.add("is-lit"); // Fade up from black on the first clip.
+    };
+    const playing = video.play();
+    if (playing?.then) playing.then(show, () => intro.classList.add("is-lit"));
+    else show();
   };
   function showClip(index, endIn = 0) {
     current = index;
-    const video = clips[index];
-    if (video.readyState >= 2) reveal(video, endIn);
-    // Still loading: show it as soon as it can play, unless the next clip's turn has come by then.
-    // Until then the previous video stays up, so a still photo never shows.
-    else video.addEventListener("loadeddata", () => { if (current === index) reveal(video, endIn); }, { once: true });
+    reveal(clips[index], endIn, index);
   }
   return { clips, showClip };
 }
